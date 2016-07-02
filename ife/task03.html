@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>三栏式布局</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-size: 16px;
+            font-family: "Microsoft YaHei", serif;
+            line-height: 1.5em;
+            color: #333;
+        }
+        #main {
+            background: #eee;
+            border: 1px solid #999;
+            margin: 20px;
+            padding:20px;
+            min-height: 440px;
+            min-width: 620px;
+            position: relative;
+        }
+        #teamName {
+            width: 198px;
+            border: 1px solid #999;
+            background: #fff;
+            float: left;
+            position: absolute;
+        }
+        #teamName img{
+            display: block;
+            margin:20px;
+            float: left;
+        }
+        #teamName p{
+            position: relative;
+            top:18px;
+        }
+        #teamIntro {
+            border: 1px solid #999;
+            background: #fff;
+            padding: 20px;
+            float: left;
+            margin:0 140px 0 220px;
+            min-width: 120px;
+        }
+        #teamIntro p {
+            margin-bottom: 18px;
+        }
+
+        #teamPic {
+            float: left;
+            width: 80px;
+            background: #fff;
+            border: 1px solid #999;
+            padding: 19px;
+            position: absolute;
+            right: 19px;;
+        }
+        #teamPic img{
+            display: block;
+            margin-bottom:20px;
+        }
+        .clear{
+            clear: both;
+        }
+    </style>
+</head>
+<body>
+<div id="main">
+    <div id="teamName"><img src="images/a.jpg" width="80" height="80" alt="团队LOGO"/>
+
+        <p>团队名称</p>
+    </div>
+    <div id="teamIntro">
+        <p>网易科技讯7月2日消息，据CNBC报道，百度——常常被称为中国的谷歌——CEO李彦宏周五表示，该公司最终将打入美国和欧洲，同时瞄准新的领域如无人驾驶汽车和金融。在巴黎的Viva
+            Technology大会上，李彦宏称扩张无疑是有可能的。</p>
+
+        <p>他在接受现场采访时表示：“我认为我们最终将进入欧洲和美国，然后是很多其他地区。我们已经进入了一些国家，但我们需要寻找新的战场。搜索日益成熟，移动与桌面非常不同。我们需要找到进入这种新市场的方法。”</p>
+
+        <p>
+            百度在中国同时经营移动和桌面搜索服务，主导着中国搜索市场，超过90%的营收来自广告。迄今，百度的国际扩张努力主要集中在新兴市场，这些市场移动在爆炸性增长，但互联网连接却改善很慢。百度在巴西、印尼和泰国有业务。然而，该公司在更发达的移动市场日本也在经营。</p>
+
+        <p>
+            在每个市场，百度关注的是发布本地语言版搜索引擎。该公司也希望通过其他服务扩大足迹。在印尼，百度有自己的Android应用店MoboMarket。但欧洲和美国是完全不同的，谷歌占据主导地位。在这些市场立足将是困难的，因为谷歌的流行特别是在移动方面Android系统是美国和欧洲的第一大系统。</p>
+
+        <p>此外，百度还要应对监管问题，特别是在美国，常常对中国公司不利。不清楚百度将采取何种战略进入欧洲和美国。百度投资了美国公司如Uber，可能利用这点在某些市场立足。（木秀林）</p>
+    </div>
+    <div id="teamPic">
+        <img src="images/icon.jpg" alt="个人logo" width="80" height="80">
+        <img src="images/icon.jpg" alt="个人logo" width="80" height="80">
+        <img src="images/icon.jpg" alt="个人logo" width="80" height="80">
+        <img src="images/icon.jpg" alt="个人logo" width="80" height="80">
+    </div>
+    <div class="clear"></div>
+</div>
+
+</body>
+</html>
