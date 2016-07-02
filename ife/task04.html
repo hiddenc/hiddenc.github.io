@@ -2,9 +2,45 @@
 <html>
 <head lang="en">
     <meta charset="UTF-8">
-    <title></title>
+    <title>定位和居中</title>
+    <style>
+        /*.box-set {
+            background: #e8eae9;
+            //height: 200px;
+            //position: relative;
+        }*/
+        .box {
+            background: #ccc;
+            height: 200px;
+            width: 400px;
+            position: absolute;
+            //position: relative;
+            top:50%;
+            left:50%;
+            margin-left:-200px;
+            margin-top:-100px;
+        }
+        .box::before, .box::after {
+            content: '';
+            display: block;
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            background-color: #FC0;
+        }
+        .box::before{
+            left:0;
+            top:0;
+            border-radius: 0 0 100% 0;
+        }
+        .box::after{
+            right:0;
+            bottom:0;
+            border-radius: 100% 0 0 0;
+        }
+    </style>
 </head>
 <body>
-
+    <div class="box">Box 1</div>
 </body>
 </html>

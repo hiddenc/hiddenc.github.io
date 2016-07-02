@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>position 测试</title>
+    <style>
+        .box-set {
+            background: #e8eae9;
+            //height: 200px;
+            //position: relative;
+        }
+        .box {
+            background: #8ec63f;
+            height: 80px;
+            //position: absolute;
+            position: relative;
+            width: 80px;
+            -webkit-border-radius: 10px;
+            -moz-border-radius: 10px;
+            border-radius: 10px;
+        }
+        .b1 {
+            top: 6%;
+            left: 2%;
+        }
+        .b2 {
+            top: 10px;
+            left: 40px;
+        }
+        .b3 {
+            bottom: -10px;
+            right: 20px;
+        }
+        .b4 {
+            bottom: 0;
+        }
+        /*相对定位*/
+        .box-set2 {
+            background: #e8eae9;
+            height: 800px;
+            position: relative;
+        }
+        .box2 {
+            background: #8ec63f;
+            height: 80px;
+            position: absolute;
+            width: 80px;
+        }
+        .b21 {
+            top: 6%;
+            left: 2%;
+        }
+        .b22 {
+            top: 0;
+            right: -40px;
+        }
+        .b23 {
+            bottom: -10px;
+            right: 20px;
+        }
+        .b24 {
+            bottom: 0;
+        }
+        /*绝对定位*/
+        footer{
+            position: fixed;
+            height: 60px;
+            line-height: 60px;
+            background:deepskyblue;
+            color:#fff;
+            text-align: center;
+            top: 0;
+            left: 0;
+            right: 0;
+        }
+        /*固定定位*/
+    </style>
+</head>
+<body>
+<div class="box-set">
+    <div class="box b1">Box 1</div>
+    <div class="box b2">Box 2</div>
+    <div class="box b3">Box 3</div>
+    <div class="box b4">Box 4</div>
+</div>
+<br/>
+<div class="box-set2">
+    <div class="box2 b21">Box 1</div>
+    <div class="box2 b22">Box 2</div>
+    <div class="box2 b23">Box 3</div>
+    <div class="box2 b24">Box 4</div>
+</div>
+<footer>
+    footer content
+</footer>
+</body>
+</html>
