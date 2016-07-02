@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        canvas{
+            width: 600px;
+            height: 300px;
+            border:1px solid #ccc;
+        }
+    </style>
+</head>
+<body>
+<canvas id="mycanvas">
+    浏览器版本过低，请升级！
+</canvas>
+<script>
+    var canvas = document.getElementById("mycanvas");
+    var context = canvas.getContext('2d');
+    context.fillStyle = "#ff0000";
+    context.fillRect(20,20,21,21);
+    //创建矩形
+</script>
+</body>
+</html>
