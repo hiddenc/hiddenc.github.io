@@ -14,8 +14,12 @@ body {
     font-style: 18px;
 }
 
+#mt80 {
+    margin-top: 80px;
+}
+
 article {
-    margin: 20px auto;
+    margin: 20px 400px 20px 20px;
     border: 1px solid #ccc;
     padding: 30px 20px;
     box-shadow: 1px 1px 1px #333;
@@ -41,9 +45,11 @@ article p {
 ul.list li, ol.ranking li {
     margin-left: 2em;
 }
-ol.ranking{
-    margin-top:8px
+
+ol.ranking {
+    margin-top: 8px
 }
+
 address span {
     font-size: 12px;
     color: #ccc;
@@ -52,19 +58,24 @@ address span {
 address {
     font-style: normal;
 }
-.clear:before,.clear:after{
+
+.clear:before, .clear:after {
     content: "";
     display: table;
 }
-.clear:after{
-    clear:both
+
+.clear:after {
+    clear: both
 }
-.clear{
-    *zoom:1;
+
+.clear {
+    *zoom: 1;
 }
-figuer{
+
+figuer {
 
 }
+
 figure ul li {
     width: 120px;
     height: 125px;
@@ -72,8 +83,8 @@ figure ul li {
     float: left;
     border: 1px solid #ccc;
     margin-top: 16px;
-    margin-left:2%;
-    margin-right:2%
+    margin-left: 2%;
+    margin-right: 2%
 }
 
 figure ul li img {
@@ -101,6 +112,10 @@ article table {
     vertical-align: baseline;
 }
 
+article img {
+    width: 40%;
+}
+
 article table tr td {
     border: 1px solid #ccc;
 }
@@ -116,22 +131,22 @@ header {
     height: 60px;
     background: #666;
     position: fixed;
-    left:0;
-    right:0;
-    top:0;
+    left: 0;
+    right: 0;
+    top: 0;
     z-index: 10;
 }
 
 header h1 {
     position: relative;
-    left:20px;
+    left: 20px;
     float: left;
 }
 
 header nav {
     float: right;
     position: relative;
-    right:20px;
+    right: 20px;
 }
 
 header ul li {
@@ -153,33 +168,23 @@ header ul li a {
     color: #fff;
 }
 
-#main{
-    position: absolute;
-    left:20px;
-    right:20px;
-    top:60px;
-}
-#left{
-    float: left;
-    position: absolute;
-    right:380px;
-}
 aside {
-    float: left;
+    float: right;
     width: 320px;
-    margin: 20px 0;
+    margin: 0 20px 0 0;
     border: 1px solid #ccc;
     padding: 30px 20px;
     box-shadow: 1px 1px 1px #333;
     background: #fff;
-    position: absolute;
-    right:0;
     overflow: hidden;
 }
 
 aside h3 {
     border-left: 3px solid #ccc;
     padding-left: 12px;
+    height: 24px;
+    line-height: 24px;
+    font-size: 16px;
 }
 
 aside form button {
@@ -192,44 +197,48 @@ aside form button {
     border: none;
     border-radius: 8px;
     cursor: pointer;
-}
-aside form {
-    font-size: 14px;
-    margin-top:18px;
-}
-aside form label{
-    display: block;
-    min-height: 24px;
-    margin:8px 0;
-}
-aside form input {
-    border: 1px solid #ccc;
-    height: 20px;
-    line-height: 20px;
-    float: left;
+    margin-top:20px;
 }
 
-aside form .tips {
-    color: #999;
+aside form {
+    font-size: 14px;
+    margin-top: 18px;
+}
+aside div{
+    margin:6px 0;
+}
+aside form input{
+
+}
+aside form textarea{
+    float: left;
+    display: block;
+    width: 50%;
+ }
+aside form p{
+     margin-left:46%;
     font-size: 12px;
-    margin-left: 468px;;
-    margin-bottom:18px;
+    line-height: 1.5em;
+    color:#999;
 }
 aside form span {
-    width: 200px;
-    display: block;
+    width: 40%;
     float: left;
+    display: inline-block;
     text-align: right;
-    margin-left:250px;
-    margin-right: 18px;
+    margin-right:18px;
 }
-.inBlock{ display: inline-block;
-    height: none;}
-footer{
+.inBlock {
+    display: inline-block;
+    height: none;
+}
+
+footer {
+    bottom: 0;
     width: 100%;
     height: 60px;
     line-height: 60px;
     background: #333;
-    color:#fff;
+    color: #fff;
     text-align: center;
 }
