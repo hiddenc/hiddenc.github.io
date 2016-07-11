@@ -5,22 +5,85 @@
     <title></title>
     <style>
         canvas{
-            width: 600px;
-            height: 300px;
-            border:1px solid #ccc;
+            border:1px solid #9c9898;
         }
     </style>
+    <script>
+        window.onload = function(){
+            var canvas = document.getElementById("mycanvas");
+            var context = canvas.getContext("2d");
+            //context.fillStyle = "#ff0000";
+            //context.fillRect(50,25,100,50);
+
+            context.beginPath();
+            context.moveTo(200,canvas.height/2-50);
+            context.lineTo(canvas.width-200,canvas.height/2-50);
+            context.lineWidth = 10;
+            context.strokeStyle = "#ff0000";
+            context.lineCap = "butt";
+            context.stroke();
+
+            context.beginPath();
+            context.moveTo(200,canvas.height/2);
+            context.lineTo(canvas.width-200,canvas.height/2);
+            context.lineWidth = 20;
+            context.strokeStyle = "#ff0000";
+            context.lineCap = "round";
+            context.stroke();
+
+            context.beginPath();
+            context.moveTo(200,canvas.height/2+50);
+            context.lineTo(canvas.width-200,canvas.height/2+50);
+            context.lineWidth = 20;
+            context.strokeStyle = "#ff0000";
+            context.lineCap = "square";
+            context.stroke();
+            //以上为直线
+            context.beginPath();
+            context.moveTo(20,20);
+            context.lineTo(100,20);
+            context.arcTo(150,20,150,70,50);
+            context.lineTo(150,120);
+            context.lineWidth = 5;
+            context.stroke();
+            //以上为弧线
+            context.beginPath();
+            context.moveTo(400,canvas.height/2);
+            context.quadraticCurveTo(488,0,578,150);
+            context.lineWidth = 5;
+            context.strokeStyle = "orange";
+            context.stroke();
+            //以上为二次贝塞尔曲线
+            context.beginPath();
+            context.moveTo(500,canvas.height/2);
+            context.bezierCurveTo(400,10,588,10,688,170);
+            context.lineWidth = 5;
+            context.strokeStyle = "orange";
+            context.stroke();
+            //以上三次贝塞尔曲线
+
+            var canvas2 = document.getElementById("mycanvas2");
+            var context2 = canvas2.getContext("2d");
+            context2.beginPath();
+            context2.moveTo(100,20);
+            //第一条直线
+            context2.lineTo(200,160);
+            //二次曲线
+            context2.quadraticCurveTo(230,200,250,120);
+            //贝塞尔曲线
+            context2.bezierCurveTo(299,-20,300,200,400,150);
+            //第二条直线
+            context2.lineTo(500,90);
+            context2.lineWidth = 1;
+            context2.strokeStyle = "blue";
+            context2.stroke();
+
+        }
+    </script>
 </head>
 <body>
-<canvas id="mycanvas">
-    浏览器版本过低，请升级！
-</canvas>
-<script>
-    var canvas = document.getElementById("mycanvas");
-    var context = canvas.getContext('2d');
-    context.fillStyle = "#ff0000";
-    context.fillRect(20,20,21,21);
-    //创建矩形
-</script>
+<canvas id="mycanvas" width="678" height="200"></canvas>
+
+<canvas id="mycanvas2" width="678" height="200"></canvas>
 </body>
 </html>
