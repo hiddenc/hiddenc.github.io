@@ -199,3 +199,8 @@ header nav ul li:nth-child(5):hover~.move{
     color:#888;
     font-family: 黑体, sans-serif;
 }
+.new_world_action .search_new{
+    width: 100%;
+    height: 340px;
+    background: url("../images/07_map.jpg") top center no-repeat;
+}
