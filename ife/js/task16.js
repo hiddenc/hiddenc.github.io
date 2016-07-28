@@ -10,16 +10,47 @@ var aqiData = {};
 var $ = function(id){
     return document.getElementById(id);
 }
-
+if (!String.prototype.trim){
+    /*---------------------------------------
+     * 清除字符串两端空格，包含换行符、制表符
+     *---------------------------------------*/
+    String.prototype.trim = function () {
+        return this.replace(/(^[\s\n\t]+|[\s\n\t]+$)/g, "");
+    }
+}
 /**
  * 从用户输入中获取数据，向aqiData中增加一条数据
  * 然后渲染aqi-list列表，增加新增的数据
  */
+
 function addAqiData() {
-    var cityName = $('aqi-city-input').value;
-    var myNum = $('aqi-value-input').value;
-    aqiData[cityName] = myNum;
+    var cityName = $('aqi-city-input').value.trim();
+    var myNum = $('aqi-value-input').value.trim();
+    var tipsName = '城市名必须为中英文字符(10个中文字符以内)';
+    var tipsNum = '空气质量指数必须为1-500间的整数';
+    var cityNameB = cityName.match(/^[\u4e00-\u9fa5]{1,10}$|^[A-Za-z]+\s?[A-Za-z]*$/);
+    var myNumB = myNum.match(/^[1-9]$|^[0-9][0-9]$|^[1234][0-9][0-9]$|^500$/);
+    if(cityNameB && myNumB){
+        aqiData[cityName] = myNum;
+    }else if(!cityNameB && !myNumB){
+        alert(tipsName+','+tipsNum);
+    }else if(!cityNameB){
+        alert(tipsName);
+    }else if(!myNumB){
+        alert(tipsNum);
+    }
 }
+/*function addAqiData() {
+    var cityName = $('aqi-city-input').value.trim();
+    var myNum = $('aqi-value-input').value.trim();
+
+    if((cityName.match((/^[\u4e00-\u9fa5]{2,10}$|^\w+\s?\w*$/) && (myNum.match(/^[1-9]\d*$/)) ){
+        aqiData[cityName] = myNum;
+    }else{
+        alert('wrong');
+    }
+
+}*/
 
 /**
  * 渲染aqi-table表格
@@ -27,7 +58,7 @@ function addAqiData() {
 function renderAqiList() {
 
 
-    /*function allpro(obj){
+    function allpro(obj){
         var keys=[];
         var values=[];
         for(var key in obj){
@@ -37,17 +68,18 @@ function renderAqiList() {
                 values.push(obj[key]);
             }
         }
-        alert("keys is ："+keys+" and values is ："+values);
+        $('aqi-table').innerHTML = '';
+        for(i=0;i<keys.length;i++){
+            $('aqi-table').innerHTML += '<tr><td>'+keys[i]+'</td><td>'+values[i]+'</td><td><button>删除</button></td></tr>'}
     }
     Object.prototype.bar = 1;// 修改Object.prototype
-    var o={"name":"wjy","age":26,"sex":"female"};//定义一个object对象
-    allpro(o);*/
+    allpro(aqiData);
 
-    for(var i in aqiData){
+    /*for(var i in aqiData){
         console.log(i);
         console.log(aqiData[i]);
         $('aqi-table').innerHTML +='<tr><td>'+i+'</td><td>'+aqiData[i]+'</td><td><button>删除</button></td></tr>';
-    }
+    }*/
 }
 /**
  * 点击add-btn时的处理逻辑
@@ -56,6 +88,13 @@ function renderAqiList() {
 function addBtnHandle() {
     addAqiData();
     renderAqiList();
+    var delList = $('aqi-table').getElementsByTagName('tbody');
+    console.log(delList[0].getElementsByTagName('button')[0]);
+    for(var i = 0;i<delList.length;i++){
+        delList[i].getElementsByTagName('button')[0].onclick = function(){
+            alert(i);
+        }
+    }
 }
 
 /**
