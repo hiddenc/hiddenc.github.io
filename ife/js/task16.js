@@ -6,6 +6,8 @@
  *    "上海": 40
  * };
  */
+
+var aqiData = {};
 var $ = function(id){
     return document.getElementById(id);
 }
