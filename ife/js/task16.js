@@ -32,6 +32,8 @@ function addAqiData() {
     var myNumB = myNum.match(/^[1-9]$|^[0-9][0-9]$|^[1234][0-9][0-9]$|^500$/);
     if(cityNameB && myNumB){
         aqiData[cityName] = myNum;
+        $('aqi-city-input').value = '';
+        $('aqi-value-input').value = '';
     }else if(!cityNameB && !myNumB){
         alert(tipsName+','+tipsNum);
     }else if(!cityNameB){
@@ -57,7 +59,6 @@ function addAqiData() {
  */
 function renderAqiList() {
 
-
     function allpro(obj){
         var keys=[];
         var values=[];
@@ -70,7 +71,8 @@ function renderAqiList() {
         }
         $('aqi-table').innerHTML = '';
         for(i=0;i<keys.length;i++){
-            $('aqi-table').innerHTML += '<tr><td>'+keys[i]+'</td><td>'+values[i]+'</td><td><button>删除</button></td></tr>'}
+            $('aqi-table').innerHTML += '<tr><td>'+keys[i]+'</td><td>'+values[i]+'</td><td><button onclick="delBtnHandle(\'' + keys[i] + '\')">删除</button></td></tr>'};
+
     }
     Object.prototype.bar = 1;// 修改Object.prototype
     allpro(aqiData);
@@ -86,35 +88,29 @@ function renderAqiList() {
  * 获取用户输入，更新数据，并进行页面呈现的更新
  */
 function addBtnHandle() {
+    //添加数据至aqiData对象
     addAqiData();
     renderAqiList();
-    var delList = $('aqi-table').getElementsByTagName('tbody');
-    console.log(delList[0].getElementsByTagName('button')[0]);
-    for(var i = 0;i<delList.length;i++){
-        delList[i].getElementsByTagName('button')[0].onclick = function(){
-            alert(i);
-        }
-    }
 }
 
 /**
  * 点击各个删除按钮的时候的处理逻辑
  * 获取哪个城市数据被删，删除数据，更新表格显示
  */
-function delBtnHandle() {
+function delBtnHandle(city) {
     // do sth.
-
+    //删除aqiData对象中对应的数据
+    delete aqiData[city];
     renderAqiList();
+
 }
 
 function init() {
 
     // 在这下面给add-btn绑定一个点击事件，点击时触发addBtnHandle函数
-    $('add-btn').onclick = function(){
+    $('add-btn').onclick = function () {
         addBtnHandle();
-    }
+    };
     // 想办法给aqi-table中的所有删除按钮绑定事件，触发delBtnHandle函数
-
 }
-
 init();
