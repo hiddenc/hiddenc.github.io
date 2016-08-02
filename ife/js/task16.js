@@ -6,7 +6,6 @@
  *    "上海": 40
  * };
  */
-var aqiData = {};
 var $ = function(id){
     return document.getElementById(id);
 }
@@ -58,7 +57,7 @@ function addAqiData() {
  * 渲染aqi-table表格
  */
 function renderAqiList() {
-
+    //将aqiData中的数据转换成keys和values中的两个数组
     function allpro(obj){
         var keys=[];
         var values=[];
@@ -69,6 +68,7 @@ function renderAqiList() {
                 values.push(obj[key]);
             }
         }
+        //判断数据是否为空，决定是否显示table头信息
         if(keys.length == 0) {
             $('aqi-table').innerHTML = '';
         }else{
