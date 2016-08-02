@@ -69,7 +69,11 @@ function renderAqiList() {
                 values.push(obj[key]);
             }
         }
-        $('aqi-table').innerHTML = '';
+        if(keys.length == 0) {
+            $('aqi-table').innerHTML = '';
+        }else{
+            $('aqi-table').innerHTML = '<tr><td>城市</td><td>空气质量</td><td>操作</td></tr>';
+        }
         for(i=0;i<keys.length;i++){
             $('aqi-table').innerHTML += '<tr><td>'+keys[i]+'</td><td>'+values[i]+'</td><td><button onclick="delBtnHandle(\'' + keys[i] + '\')">删除</button></td></tr>'};
 
