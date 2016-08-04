@@ -37,7 +37,7 @@ function getDateStr(dat) {
 function randomBuildData(seed) {
     var returnData = {};
     var dat = new Date("2016-01-01");
-    var datStr = ''
+    var datStr = '';
     for (var i = 1; i < 92; i++) {
         datStr = getDateStr(dat);
         returnData[datStr] = Math.ceil(Math.random() * seed);
@@ -73,11 +73,11 @@ var aqiChartWrap = document.getElementsByClassName('aqi-chart-wrap')[0];
  * 渲染图表
  */
 function renderChart() {
-    var text = '';
+    var text = '',color='';
     for(var item in chartData){
-        text += '<div>'+item+'</div>';
+        color = '#' + Math.floor(Math.random() * 0xFFFFFF).toString(16);
+        text += '<div style="height:'+chartData[item]+'px;background:'+color+'" title="'+[item]+':'+chartData[item]+'"></div>';
     }
-    console.log(text);
     aqiChartWrap.innerHTML = text;
 }
 
@@ -129,7 +129,7 @@ function initGraTimeForm() {
 function initCitySelector() {
     // 读取aqiSourceData中的城市，然后设置id为city-select的下拉列表中的选项
     var cityList = "";
-    for(item in aqiSourceData){
+    for(var item in aqiSourceData){
         cityList += '<option>'+[item]+'</optin>';
     }
     citySelect.innerHTML = cityList;
@@ -147,7 +147,7 @@ function initAqiChartData() {
     if(pageState.nowGraTime == 'day'){
         chartData = nowCityData;
     }else if(pageState.nowGraTime == 'week'){
-        var chartData = {};
+        chartData = {};
         var countSum = 0,daySum = 0,week = 0;
         for(var item in nowCityData){
             countSum += nowCityData[item];
@@ -164,7 +164,7 @@ function initAqiChartData() {
             chartData['第'+ week +'周'] = Math.floor(countSum/daySum);
         }
     }else if(pageState.nowGraTime == 'month'){
-        var chartData = {};
+        chartData = {};
         var countSum = 0,daySum = 0,month = 0;
         for(var item in nowCityData){
             if((new Date(item)).getMonth() !== month){
@@ -177,7 +177,7 @@ function initAqiChartData() {
                 daySum ++;
             }
         }
-        if(daySum != 0){
+        if(daySum!=0){
             month++;
             chartData[month+'月'] = Math.floor(countSum/daySum);
         }
@@ -188,9 +188,10 @@ function initAqiChartData() {
  * 初始化函数
  */
 function init() {
-    initGraTimeForm()
+    initGraTimeForm();
     initCitySelector();
     initAqiChartData();
+    renderChart();
 }
 
 init();
