@@ -7,22 +7,42 @@
         #result{
             display: flex;
             align-items: flex-end;
+
+            height: 505px;
         }
         #result div {
-            background-color: red;
+            //background-color: red;
             text-align: center;
             color: #fff;
             transition: height 500ms;
+
+            margin: 3px;
+            width: 15px;
+        }
+        /*five-african*/
+        .red {
+            background-color: red;
+        }
+        .blue {
+            background-color: blue;
+        }
+        .green {
+            background-color: green;
         }
     </style>
 </head>
 <body>
+<div>
 <input type="number"/>
 <button id="left-in">左侧入</button>
 <button id="right-in">右侧入</button>
 <button id="left-out">左侧出</button>
 <button id="right-out">右侧出</button>
-<button id="random">随机50个</button>
+<button id="random">随机50</button>
+<button id="sort">排序</button>
+<button id="clear">清空</button>
+interval(ms): <input id="renderInterval" value="150" />
+</div>
 <div id="result"></div>
 <script src="js/task19.js"></script>
 </body>
