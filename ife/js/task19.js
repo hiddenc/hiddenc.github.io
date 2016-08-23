@@ -94,7 +94,7 @@ var aniQue = delay(function(){}, 0); // = animationQueue
 var inAnimation = false; // true: 不要动，举起手来，离开鼠标和键盘
 var renderInterval = 150; // 设成10才是真快感
 
-/!* delay还是queue？ *!/
+/!* delay还是queue？ *!/    
 function delay(fn, t) {
     var queue = [], self, timer;
     function schedule(fn, t) {
