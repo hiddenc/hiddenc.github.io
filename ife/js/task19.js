@@ -89,16 +89,16 @@ $('#clear').onclick = clear;
 $ = function (el) { return document.querySelector(el); };
 $$ = function (el) { return document.querySelectorAll(el); };
 var data = [];
-var sizeFactor = 5; // 大，大，大
+var sizeFactor = 5; // 大，大，大  柱子高度倍数
 var aniQue = delay(function(){}, 0); // = animationQueue
 var inAnimation = false; // true: 不要动，举起手来，离开鼠标和键盘
-var renderInterval = 150; // 设成10才是真快感
+var renderInterval = 10; // 设成10才是真快感
 
-/!* delay还是queue？ *!/    
+/!* delay还是queue？ *!/
 function delay(fn, t) {
-    var queue = [], self, timer;
-    function schedule(fn, t) {
-        timer = setTimeout(function() {
+    var queue = [], self, timer; // 声明变量
+    function schedule(fn, t) { // 函数声明
+        timer = setTimeout(function() { // 函数声明
             timer = null;
             fn();
             if (queue.length) {
@@ -143,7 +143,7 @@ function sort_partition(left, right) {
         data[right] = data[left];
         renderSort(right, data[right]);
     }
-    data[left] = p
+    data[left] = p;
     renderSort(left, data[left]);
     renderSortRange(left, right, true);
     return left;
@@ -259,7 +259,7 @@ function getLastIndex() {
 
 /!* 过滤掉万恶的QA和小白 *!/
 function validateStr(str) {
-    return /\d+/.test(str);
+    return /^\d+$/.test(str);
 }
 
 /!* 全部都绑起来 *!/
