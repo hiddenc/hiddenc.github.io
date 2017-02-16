@@ -1,45 +1,18 @@
-/**
- * Created by Administrator on 2016/8/6.
- */
-//事件绑定函数，兼容浏览器差异
-/* 我的
-
- function addEvent(element, event, listener) {
- if (element.addEventListener) {
- element.addEventListener(event, listener, false);
- }
- else if (element.attachEvent) {
- element.attachEvent("on" + event, listener);
- }
- else {
- element["on" + event] = listener;
- }
- }
- //getById事件
- var $ = function(id){
- return document.getElementById(id);
- };
-
- var content = document.getElementsByTagName('input')[0].value;
- var createSpan = document.createElement('span');
- var text = document.createTextNode('content');
- var insertSpan = creatSpan.appendChild(text);
-
- var container = $('container');
-
- container.innerHTML = insertSpan;*/
-
-
-
-/**
- * Created by five-african
- */
 var $ = function (el) { return document.querySelector(el);};
 var data = [];
 
-function render() {
-    $('#result').innerHTML =
-        data.map(function(d) { return "<div>" + d + "</div>";}).join('');
+function render(e) {
+    if(e){
+        console.log(e);
+        var reg = new RegExp(e,"g");
+        $('#result').innerHTML =  data.map(function(item){
+            var r = item.replace(reg,"<span class='select'>"+e+"</span>");
+            return "<div>" + r + "</div>";
+        }).join("");
+    }else{
+        $('#result').innerHTML =
+            data.map(function(d) { return "<div>" + d + "</div>";}).join('');
+    }
 }
 
 function deal(func,succ){
@@ -49,9 +22,13 @@ function deal(func,succ){
             var arg = args.map(function(item){
                 return typeof item === "function" ? item(e) : item;
             });
-            var result = func.apply(data,arg);
-            if (succ != null){
-                succ(result);
+            if(succ == '1'){
+                var result = func.apply(data,arg);
+            }else{
+                var result = func.apply(data,arg[0]);
+                if (succ != null){
+                    succ(result);
+                }
             }
         } catch (ex){
             alert(ex.message);
@@ -61,9 +38,9 @@ function deal(func,succ){
 }
 
 function getInputValue(){
-    var numStr = $('input').value;
-    if(!validate(numStr)) throw new Error('input error');
-    return parseInt(numStr);
+    var inputStr = $('textarea').value;
+    if(!validate(inputStr)) throw new Error('input error');
+    return validate(inputStr);
 }
 
 function getClickIndex(e){
@@ -72,11 +49,19 @@ function getClickIndex(e){
 }
 
 function validate(str) {
-    return /^\d+$/.test(str);
+    var str = "".replace.call(str,/\~|\`|\!|\@|\#|\$|\%|\^|\&|\*|\(|\)|\-|\_|\+|\=|\||\\|\[|\]|\{|\}|\;|\:|\"|\'|\,|\<|\.|\>|\/|\?\n+|\,+|\，+|\s+|\、+/g,"\n");
+    str = "".split.call(str,/\n+/);
+    str = str.filter(function(e){
+        return /\S+/.test(e);
+    });
+    return str;
 }
 
 $('#left-in').onclick = deal([].unshift, null, getInputValue);
 $('#right-in').onclick = deal([].push, null, getInputValue);
 $('#left-out').onclick = deal([].shift, window.alert);
 $('#right-out').onclick = deal([].pop, window.alert);
-$('#result').onclick = deal([].splice, null, getClickIndex, 1);
+$('#result').onclick = deal([].splice, 1, getClickIndex, 1);
+$('#search').onclick = function(){
+    render($('#search-text').value);
+};
