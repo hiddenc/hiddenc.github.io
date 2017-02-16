@@ -31,6 +31,7 @@ function sort(){
 function sort2(a,b){
     if(a>=b){
         if(b<=1){
+            $('#result').children[0].className = 'red';
             return;
         }else{
             compare(0,b-1);
