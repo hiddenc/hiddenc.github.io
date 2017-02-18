@@ -3,7 +3,7 @@
  */
 var $ = function(e){return document.querySelector(e);};
 var divList = [],
-    timer = null;
+    timer = null,
     root = $('#root'),
     button = $('button'),
     select = $('select');
