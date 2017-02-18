@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>task22 about js</title>
+</head>
+<style>
+    div{
+        border:1px solid #666;
+        background:white;
+        display: flex;
+        flex:1;
+        margin:5%;
+    }
+    div:empty{
+        display: block;
+    }
+    #root{
+        width: 80%;
+        height: 300px;
+        display: flex;
+    }
+    #root > div{
+        border:1px solid #666;
+    }
+    .changeColor{
+        background: #f0ad4e;
+    }
+</style>
+<body>
+<div id="root">
+    <div>
+        <div>
+            <div></div>
+            <div></div>
+        </div>
+        <div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+    <div>
+        <div>
+            <div></div>
+            <div></div>
+        </div>
+        <div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+</div>
+<select>
+    <option value="pre">前序</option>
+    <option value="in">中序</option>
+    <option value="pro">后序</option>
+</select>
+<button>提交</button>
+<script src="js/task22.js"></script>
+</body>
+</html>
