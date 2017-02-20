@@ -1,12 +1,15 @@
 /**
  * Created by Administrator on 2017/2/17.
  */
+    "use strict";
 var $ = function(e){return document.querySelector(e);};
 var divList = [],
     timer = null,
     root = $('#root'),
     button = $('button'),
-    select = $('select');
+    select = $('select'),
+    depthSearch = $('#depth-search'),
+    inSearch = $('#in-search');
 
 var reset = function(){
     divList = [];
@@ -29,6 +32,28 @@ button.onclick = function(){
         default :
             proTraverse();
             break;
+    }
+};
+
+depthSearch.onclick = function(){
+    var inputValue = $('input').value.trim().toLowerCase();
+    if(inputValue != ""){
+        reset();
+        preOrder(root);
+        changeColor(inputValue);
+    }else{
+        alert('请输入搜索关键词');
+    }
+};
+
+inSearch.onclick = function(){
+    var inputValue = $('input').value.trim().toLowerCase();
+    if(inputValue != ""){
+        reset();
+        inOrder(root);
+        changeColor(inputValue);
+    }else{
+        alert('请输入搜索关键词');
     }
 };
 
@@ -62,16 +87,16 @@ var preOrder = function(node){
 };
 
 var inOrder = function(node){
-    if(node!=null){
-        if(node.children.length != 0){
-            divList.push(node);
-            for(var i =0;i<node.children.length;i++){
-                inOrder(node.children[i]);
-            }
-        }else{
-            divList.push(node);
+    var temp = []; //临时组
+    temp.push(node); //插入根node
+    do
+    {
+        var current_node = temp.shift(); //当前处理node
+        divList.push(current_node); //加入到正式组
+        for(var i=0;i<current_node.children.length;i++){ //将当前node的所有子node加入到临时组中
+            temp.push(current_node.children[i]);
         }
-    }
+    }while(temp.length != 0); //临时组不为空时循环
 };
 
 var proOrder = function(node){
@@ -82,17 +107,23 @@ var proOrder = function(node){
     }
 };
 
-var changeColor = function(){
+var changeColor = function(value){
     var i = 0;
-    divList[i].style.backgroundColor = 'red';
     timer = setInterval(function(){
-        i++;
         if(i < divList.length){
             divList[i].style.backgroundColor = 'red';
-            divList[i-1].removeAttribute('style');
-        } else{
+            if(i>0){divList[i-1].removeAttribute('style')}
+            if(value != null && divList[i].firstChild.textContent.toLowerCase().search(value) != -1){//不区分大小写
+                clearInterval(timer);
+                return;
+            }
+            i++;
+        }else{
             clearInterval(timer);
             divList[divList.length-1].removeAttribute('style');
+            if(value != null && value != ""){
+                alert('未找到关键词：'+value);
+            }
         }
-    },200)
+    },400);
 };
