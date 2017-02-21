@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>task25 about js</title>
+</head>
+<style>
+    fieldset{
+        width:500px;
+        margin:80px auto;
+    }
+    @media screen and (max-width:540px) {
+        fieldset{
+            width:80%;
+        }
+    }
+    #root{
+        margin:0;
+        padding:0;
+        display: block;
+    }
+    div{
+        font-size: 1rem;
+        line-height: 40px;
+        border:1px solid #666;
+        background:white;
+        margin:10px 8px;
+        padding:5px;
+        display: none;
+    }
+    div:empty{
+        display: block;
+    }
+    #root > div{
+        border:1px solid #666;
+    }
+    .changeColor{
+        background: #f0ad4e;
+    }
+    div.node-header{
+        cursor: pointer;
+    }
+    div.node-bottom-show{
+        display: block;
+    }
+    div.node-bottom-hidden{
+        display: none;
+    }
+    p{
+        border-top: 10px solid #6898c2;
+        border-left: 5px solid transparent;
+        border-right: 5px solid transparent;
+        float: left;
+        margin-right: 12px;
+        margin-left:12px;
+    }
+    .unfold{
+        border-top:5px solid transparent;
+        border-bottom: 5px solid transparent ;
+        border-left: 10px solid #6898c2;
+    }
+</style>
+<body>
+<fieldset>
+    <legend>树形折叠与展开，添加与删除，搜索</legend>
+    <div id="root">Super
+        <div>Company
+            <div>Apple
+                <div>Pear</div>
+                <div>Pig</div>
+                <div>Coco</div>
+                <div>Soccer</div>
+            </div>
+            <div>Phone</div>
+            <div>Study
+                <div>Book</div>
+                <div>School</div>
+            </div>
+        </div>
+        <div>Note
+            <div>Human
+                <div>Code</div>
+                <div>Operate</div>
+                <div>Man</div>
+            </div>
+            <div>Program
+                <div>Cat
+                    <div>Mon</div>
+                </div>
+                <div>Glasses</div>
+            </div>
+        </div>
+        <div>Fish</div>
+    </div>
+    <br/>
+    <input type="text">
+    <button id="search">查询</button>
+</fieldset>
+<script src="js/task25.js"></script>
+</body>
+</html>
