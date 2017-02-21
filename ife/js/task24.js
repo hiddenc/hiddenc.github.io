@@ -145,8 +145,8 @@ var selectedNode;
 var addEventClick = function(){
     for(var i=0;i<divAll.length;i++){
         divAll[i].addEventListener('click',function(e){
-            chosed(this);
-            e.stopPropagation();
+            chosed(this);//进行选中状态，返回selectedNode值
+            e.stopPropagation();//阻止冒泡
         });
     }
 };
@@ -159,18 +159,32 @@ var chosed = function(e){
     selectedNode = e;
 };
 
-var insertContent = document.createElement("div");
-
-insertContent.textContent = $('input').value.trim().toLowerCase();
-
-
 deleteBtn.addEventListener('click',function(){
-    selectedNode.parentNode.removeChild(selectedNode);
+    if(selectedNode){
+        selectedNode.parentNode.removeChild(selectedNode);//删除选中节点
+    }else{
+        alert('请选中节点再点击');
+    }
 });
-
 insertBtn.addEventListener('click',function(){
-    selectedNode.appendChild(insertContent);
+    if($('input').value != null && $('input').value != ''){
+        if(selectedNode){
+            var insertContent = document.createElement("div");
+            insertContent.textContent = $('input').value.trim().toLowerCase();
+            selectedNode.appendChild(insertContent); //插入节点
+            //重置divAll，点击及添加事件
+            divAll = [];
+            nodeAll(root);
+            addEventClick();
+        }else{
+            alert('请选中节点再点击');
+        }
+    }else{
+        alert('请输入节点内容');
+    }
+
 });
 
+//初始化点击及添加事件
 nodeAll(root);
 addEventClick();
