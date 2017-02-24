@@ -19,6 +19,14 @@ var reset = function(){
     }
 };
 
+var addClassName = function(className,ele){
+    if(ele.className){
+        ele.className = ele.className + " " + className;
+    }else{
+        ele.className = className;
+    }
+};
+
 button.onclick = function(){
     switch(select.value) {
         case 'depthFirst':
@@ -118,7 +126,7 @@ var nodeAll = function(node){
 
 var modifyStyle = function(){
     for(var i =0;i<divAll.length;i++){
-        addAction(divAll[i]);
+
         if(divAll[i].childElementCount > 0){
             divAll[i].className = 'node-header';
         }
@@ -135,13 +143,27 @@ var addEventClick = function(){
                 chosed(this);//进行选中状态，返回selectedNode值
                 e.stopPropagation();//阻止冒泡
             });
+            divAll[i].addEventListener('mouseover',function(e){
+                showBtn(this);//滑过显示添加和删除按键
+                e.stopPropagation();//阻止冒泡
+            });
         }else{
             divAll[i].addEventListener('click',function(e){
                 e.stopPropagation();//阻止冒泡
             });
         }
+        addAction(divAll[i]);
     }
 };
+
+function stopPro(){
+    var btns = document.querySelectorAll("button");
+    for(var i= 0;i<btns.length;i++){
+        btns[i].addEventListener('click',function(e){
+            e.stopPropagation();
+        });
+    }
+}
 
 var chosed = function(e){
     //for(var i=0;i<divAll.length;i++){
@@ -150,7 +172,7 @@ var chosed = function(e){
     if(e.children[0].className != 'unfold'){
         e.children[0].className = 'unfold';
         for(var i=1;i<e.childElementCount;i++){
-                e.children[i].className = 'node-bottom-show';
+            e.children[i].className = 'node-bottom-show';
         }
     }else{
         e.children[0].removeAttribute('class');
@@ -159,6 +181,11 @@ var chosed = function(e){
         }
     }
     selectedNode = e;
+};
+
+var showBtn = function(e){
+    e.getElementsByTagName('button')[0].style.display = 'block';
+    e.getElementsByTagName('button')[1].style.display = 'block';
 };
 
 var addAction = function(e){
@@ -177,3 +204,4 @@ var addAction = function(e){
 nodeAll(root);
 modifyStyle();
 addEventClick();
+stopPro();
