@@ -136,15 +136,19 @@ var modifyStyle = function(){
 var selectedNode;
 var addEventClick = function(){
     for(var i=0;i<divAll.length;i++){
+        divAll[i].addEventListener('mouseover',function(e){
+            showBtn(this);//滑过显示添加和删除按键
+            e.stopPropagation();//阻止冒泡
+        });
+        divAll[i].addEventListener('mouseout',function(e){
+            hiddenBtn(this);//滑过显示添加和删除按键
+            e.stopPropagation();//阻止冒泡
+        });
         if(divAll[i].childElementCount > 0){//所有含有子项的节点
             var node = document.createElement("p");
             divAll[i].insertBefore(node,divAll[i].childNodes[0]);
             divAll[i].addEventListener('click',function(e){
                 chosed(this);//进行选中状态，返回selectedNode值
-                e.stopPropagation();//阻止冒泡
-            });
-            divAll[i].addEventListener('mouseover',function(e){
-                showBtn(this);//滑过显示添加和删除按键
                 e.stopPropagation();//阻止冒泡
             });
         }else{
@@ -169,15 +173,19 @@ var chosed = function(e){
     //for(var i=0;i<divAll.length;i++){
     //    divAll[i].removeAttribute('style');
     //}
-    if(e.children[0].className != 'unfold'){
-        e.children[0].className = 'unfold';
+    if(e.getElementsByTagName('p')[0].className != 'unfold'){
+        e.getElementsByTagName('p')[0].className = 'unfold';
         for(var i=1;i<e.childElementCount;i++){
-            e.children[i].className = 'node-bottom-show';
+            if(e.children[i].nodeName !=='P'){
+                e.children[i].className = 'node-bottom-show';
+            }
         }
     }else{
-        e.children[0].removeAttribute('class');
+        e.getElementsByTagName('p')[0].removeAttribute('class');
         for(var i=1;i<e.childElementCount;i++){
-            e.children[i].className = 'node-bottom-hidden';
+            if(e.children[i].nodeName !=='P'){
+                e.children[i].className = 'node-bottom-hidden';
+            }
         }
     }
     selectedNode = e;
@@ -188,16 +196,43 @@ var showBtn = function(e){
     e.getElementsByTagName('button')[1].style.display = 'block';
 };
 
+var hiddenBtn = function(e){
+    e.getElementsByTagName('button')[0].removeAttribute('style');
+    e.getElementsByTagName('button')[1].removeAttribute('style');
+};
+
 var addAction = function(e){
-    console.log(e);
     var node = document.createElement('button');
     node.textContent = '删除';
     node.setAttribute('id','delete');
     var node2 = document.createElement('button');
     node2.textContent = '添加';
     node2.setAttribute('id','add');
-    e.appendChild(node2);
-    e.appendChild(node);
+    e.insertBefore(node,e.childNodes[0]);
+    e.insertBefore(node2,e.childNodes[0]);
+};
+
+var addDel = function(){
+    var btns = document.getElementsByTagName('button');
+    for(var i =0;i<btns.length;i++){
+        if(btns[i].id == 'add'){
+            btns[i].addEventListener('click',function(){
+                var element = document.createElement('div');
+                element.className ='node-bottom-show';
+                var name=prompt("输入节点名称","");
+                if (name!=null && name!="")
+                {
+                    element.textContent = name;
+                    this.parentElement.appendChild(element);
+                    this.parentElement.click();
+                }
+            });
+        }else if(btns[i].id == 'delete'){
+            btns[i].addEventListener('click',function(){
+                this.parentElement.parentElement.removeChild(this.parentElement);
+            });
+        }
+    }
 };
 
 //初始化点击及添加事件
@@ -205,3 +240,4 @@ nodeAll(root);
 modifyStyle();
 addEventClick();
 stopPro();
+addDel();
