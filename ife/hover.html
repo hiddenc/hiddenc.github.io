@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>hover & clicj</title>
+    <style>
+        .headbg {
+            width: 100%;
+            height: 68px;
+            background: url(headbg.gif) repeat-x;
+        }
+
+        .headlogo {
+            float: left;
+            width: 174px;
+            height: 21px;
+            background: url(headlogo.gif) no-repeat;
+            margin-top: 10px;
+            margin-left: 10px;
+        }
+
+        .topmenubg {
+
+            float: left;
+            width: 47px;
+            background: #098E89;
+        }
+
+        .topmenubg ul {
+
+            float: left;
+            padding: 0;
+            list-style: none;
+            margin: 10px 0 0 0;
+            text-align: center;
+        }
+
+        .topmenubg ul li span {
+            width: 35px;
+            display: block;
+            font-size: 0;
+            border-top: 1px solid #037572;
+            border-bottom: 1px solid #0CA5A3;
+            margin-top: 5px;
+        }
+
+        a.leftmenu1 {
+            display: block;
+            width: 45px;
+            height: 45px;
+            background: url(menu/MenuBig01.jpg) no-repeat;
+            padding-bottom: 5px;
+            margin-top: 5px;
+        }
+
+        a.leftmenu1:hover {
+            background: url(images/btn_hover.png) no-repeat;
+        }
+
+        a.menusel1 {
+            display: block;
+            width: 45px;
+            height: 45px;
+            background: url(menu/MenuBig01Over.jpg) no-repeat;
+        }
+
+        a.leftmenu2 {
+            display: block;
+            width: 45px;
+            height: 45px;
+            background: url(menu/MenuBig02.jpg) no-repeat;
+            padding-bottom: 5px;
+            margin-top: 5px;
+        }
+
+        a.leftmenu2:hover {
+            background: url(images/btn_hover.png) no-repeat;
+        }
+
+        a.menusel2 {
+            display: block;
+            width: 45px;
+            height: 45px;
+            background: url(menu/MenuBig02Over.jpg) no-repeat;
+        }
+
+        a.leftmenu3 {
+            display: block;
+            width: 45px;
+            height: 45px;
+            background: url(menu/MenuBig03.jpg) no-repeat;
+            padding-bottom: 5px;
+            margin-top: 5px;
+        }
+
+        a.leftmenu3:hover {
+            background: url(images/btn_hover.png) no-repeat;
+        }
+
+        a.menusel3 {
+            display: block;
+            width: 45px;
+            height: 45px;
+            background: url(menu/MenuBig03Over.jpg) no-repeat;
+        }
+
+        a.leftmenu4 {
+            display: block;
+            width: 45px;
+            height: 45px;
+            background: url(menu/MenuBig04.jpg) no-repeat;
+            padding-bottom: 5px;
+            margin-top: 5px;
+        }
+
+        a.leftmenu4:hover {
+            background: url(images/btn_hover.png) no-repeat;
+        }
+
+        a.menusel4 {
+            display: block;
+            width: 45px;
+            height: 45px;
+            background: url(menu/MenuBig04Over.jpg) no-repeat;
+        }
+
+        a.leftmenu5 {
+            display: block;
+            width: 45px;
+            height: 45px;
+            background: url(menu/MenuBig05.jpg) no-repeat;
+            padding-bottom: 5px;
+            margin-top: 5px;
+        }
+
+        a.leftmenu5:hover {
+            background: url(images/btn_hover.png) no-repeat;
+        }
+
+        a.menusel5 {
+            display: block;
+            width: 45px;
+            height: 45px;
+            background: url(menu/MenuBig05Over.jpg) no-repeat;
+        }
+
+        a.leftmenu6 {
+            display: block;
+            width: 45px;
+            height: 45px;
+            background: url(menu/MenuBig06.jpg) no-repeat;
+            padding-bottom: 5px;
+            margin-top: 5px;
+        }
+
+        a.leftmenu6:hover {
+            background: url(menu/MenuBig06Press.jpg) no-repeat;
+        }
+
+        a.menusel6 {
+            display: block;
+            width: 45px;
+            height: 45px;
+            background: url(menu/MenuBig06Over.jpg) no-repeat;
+        }
+
+        a.leftmenu7 {
+            display: block;
+            width: 45px;
+            height: 45px;
+            background: url(menu/MenuBig07.jpg) no-repeat;
+            padding-bottom: 5px;
+            margin-top: 5px;
+        }
+
+        a.leftmenu7:hover {
+            background: url(menu/MenuBig07Press.jpg) no-repeat;
+        }
+
+        a.menusel7 {
+            display: block;
+            width: 45px;
+            height: 45px;
+            background: url(menu/MenuBig07Over.jpg) no-repeat;
+        }
+
+        a.leftmenu8 {
+            display: block;
+            width: 45px;
+            height: 45px;
+            background: url(menu/MenuBig08.jpg) no-repeat;
+            padding-bottom: 5px;
+            margin-top: 5px;
+        }
+
+        a.leftmenu8:hover {
+            background: url(menu/MenuBig08Press.jpg) no-repeat;
+        }
+
+        a.menusel8 {
+            display: block;
+            width: 45px;
+            height: 45px;
+            background: url(menu/MenuBig08Over.jpg) no-repeat;
+        }
+
+        a.leftmenu9 {
+            display: block;
+            width: 45px;
+            height: 45px;
+            background: url(menu/MenuBig09.jpg) no-repeat;
+            padding-bottom: 5px;
+            margin-top: 5px;
+        }
+
+        a.leftmenu9:hover {
+            background: url(menu/MenuBig09Press.jpg) no-repeat;
+        }
+
+        a.menusel9 {
+            display: block;
+            width: 45px;
+            height: 45px;
+            background: url(menu/MenuBig09Over.jpg) no-repeat;
+        }
+
+        a.leftmenu10 {
+            display: block;
+            width: 45px;
+            height: 45px;
+            background: url(menu/MenuBig10.jpg) no-repeat;
+            padding-bottom: 5px;
+            margin-top: 5px;
+        }
+
+        a.leftmenu10:hover {
+            background: url(menu/MenuBig10Press.jpg) no-repeat;
+        }
+
+        a.menusel10 {
+            display: block;
+            width: 45px;
+            height: 45px;
+            background: url(menu/MenuBig10Over.jpg) no-repeat;
+        }
+
+        a.leftmenu11 {
+            display: block;
+            width: 45px;
+            height: 45px;
+            background: url(menu/MenuBig11.jpg) no-repeat;
+            padding-bottom: 5px;
+            margin-top: 5px;
+        }
+
+        a.leftmenu11:hover {
+            background: url(menu/MenuBig11Press.jpg) no-repeat;
+        }
+
+        a.menusel11 {
+            display: block;
+            width: 45px;
+            height: 45px;
+            background: url(menu/MenuBig11Over.jpg) no-repeat;
+        }
+
+        a.leftmenu12 {
+            display: block;
+            width: 45px;
+            height: 45px;
+            background: url(menu/MenuBig12.jpg) no-repeat;
+            padding-bottom: 5px;
+            margin-top: 5px;
+        }
+
+        a.leftmenu12:hover {
+            background: url(menu/MenuBig12Press.jpg) no-repeat;
+        }
+
+        a.menusel12 {
+            display: block;
+            width: 45px;
+            height: 45px;
+            background: url(menu/MenuBig12Over.jpg) no-repeat;
+        }
+
+        a.butlist3 {
+            float: left;
+            width: 57px;
+            height: 22px;
+            background: url(Buttom2-3Font.gif) no-repeat;
+            border: 0;
+            text-decoration: none;
+            font-size: 12px;
+            text-align: center;
+            color: #000000;
+            padding-top: 4px;
+            margin-left: 10px;
+        }
+
+        a.butlist3:hover {
+            background: url(Buttom2-3FontPress.gif) no-repeat;
+            color: #FFFFFF;
+        }
+
+        a.butlist5 {
+            float: left;
+            width: 83px;
+            height: 22px;
+            background: url(Buttom4-5Font.gif) no-repeat;
+            border: 0;
+            text-decoration: none;
+            font-size: 12px;
+            text-align: center;
+            color: #000000;
+            padding-top: 4px;
+            margin-left: 10px;
+        }
+
+        a.butlist5:hover {
+            background: url(Buttom4-5FontPress.gif) no-repeat;
+            color: #FFFFFF;
+        }
+
+        .butlist5 {
+            float: left;
+            width: 83px;
+            height: 22px;
+            line-height: 18px;
+            background: url(Buttom4-5Font.gif) no-repeat;
+            border: 0;
+            text-decoration: none;
+            font-size: 12px;
+            text-align: center;
+            color: #000000;
+            margin-left: 10px;
+            cursor: pointer;
+        }
+
+        .butlist5:hover {
+            background: url(Buttom4-5FontPress.gif) no-repeat;
+            color: #FFFFFF;
+        }
+
+        input:disabled {
+            color: #999;
+        }
+
+        input[disabled] {
+            color: #999;
+        }
+
+        * html input.disabled {
+            color: #999;
+        }
+
+        input:disabled:hover {
+            background: url(Buttom4-5Font.gif) no-repeat;
+            color: #999;
+        }
+
+        input[disabled]:hover {
+            background: url(Buttom4-5Font.gif) no-repeat;
+            color: #999;
+        }
+
+        * html input.disabled:hover {
+            background: url(Buttom4-5Font.gif) no-repeat;
+            color: #999;
+        }
+
+        #nav {
+            float: left;
+            margin: 0;
+            padding: 0;
+        }
+
+        #nav li ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+
+        #nav li ul a.linkon {
+            color: #098D8B;
+        }
+
+        #nav li ul a:hover {
+            color: #098D8B;
+            text-decoration: underline;
+        }
+
+        .listlink {
+            color: #098D8B;
+            margin: 0 0 0 10px;
+            text-decoration: none;
+        }
+
+        a.listlink:hover {
+            color: #FF0000;
+        }
+
+        .gotobutton {
+            border: 0;
+            width: 58px;
+            height: 21px;
+            background: url(gotobutton.gif) no-repeat;
+        }
+    </style>
+    <script src="http://cdn.bootcss.com/jquery/1.4.2/jquery.min.js"></script>
+</head>
+<body>
+<div class="topmenubg">
+    <ul>
+        <li><a href="javascript:getMenuList(1);" class="leftmenu1" name="topkey" dd="T"></a><span></span></li>
+        <li><a href="javascript:getMenuList(2);" class="leftmenu2" name="topkey" dd="T"></a><span></span></li>
+        <li><a href="javascript:getMenuList(3);" class="leftmenu3" name="topkey" dd="T"></a><span></span></li>
+        <li><a href="javascript:getMenuList(4);" class="leftmenu4" name="topkey" dd="T"></a><span></span></li>
+        <li><a href="javascript:getMenuList(5);" class="leftmenu5" name="topkey" dd="T"></a><span></span></li>
+    </ul>
+</div>
+<style>
+    a.leftmenu1{
+        font-size: 11px;line-height: 10px;color:#fff;text-decoration: none;letter-spacing:-1px
+    }
+    a.leftmenu2{
+        font-size: 11px;line-height: 10px;color:#fff;text-decoration: none;letter-spacing:-1px
+    }
+    a.leftmenu3{
+        font-size: 11px;line-height: 10px;color:#fff;text-decoration: none;letter-spacing:-1px
+    }
+    a.leftmenu4{
+        font-size: 11px;line-height: 10px;color:#fff;text-decoration: none;letter-spacing:-1px
+    }
+    a.leftmenu5{
+        font-size: 11px;line-height: 10px;color:#fff;text-decoration: none;letter-spacing:-1px
+    }
+    a.menusel1{
+        font-size: 11px;line-height: 10px;text-decoration: none;letter-spacing:-1px;color:#000;background:url("images/btn_active.png") no-repeat;margin-top:5px;padding-bottom: 5px;
+    }
+    a.menusel2{
+        font-size: 11px;line-height: 10px;text-decoration: none;letter-spacing:-1px;color:#000;background:url("images/btn_active.png") no-repeat;margin-top:5px;padding-bottom: 5px;
+    }
+    a.menusel3{
+        font-size: 11px;line-height: 10px;text-decoration: none;letter-spacing:-1px;color:#000;background:url("images/btn_active.png") no-repeat;margin-top:5px;padding-bottom: 5px;
+    }
+    a.menusel4{
+        font-size: 11px;line-height: 10px;text-decoration: none;letter-spacing:-1px;color:#000;background:url("images/btn_active.png") no-repeat;margin-top:5px;padding-bottom: 5px;
+    }
+    a.menusel5{
+        font-size: 11px;line-height: 10px;text-decoration: none;letter-spacing:-1px;color:#000;background:url("images/btn_active.png") no-repeat;margin-top:5px;padding-bottom: 5px;
+    }
+    img{
+        margin:0;
+        padding:0
+    }
+</style>
+<script type="text/javascript">
+    jQuery(document).ready(function(){
+        var left_menu_img = ["btn.png","btn2.png","btn3.png","btn4.png","btn5.png"];
+        var left_menu_name = ["系统管理","组织管理","基本資料","考勤管理","福利管理"];
+       for(var i = 0;i<left_menu_img.length;i++){
+            var ele = document.createElement("img");
+            ele.src = "images/"+left_menu_img[i];
+            left_menu_img[i] = ele;
+        }
+        var leftMenuList = $(".topmenubg li a");
+        for(var i = 0;i<leftMenuList.length;i++){
+            leftMenuList[i].append(left_menu_img[i]);
+        }
+    });
+    function OpenUrl(hrefStr) {
+        var mystr = hrefStr.split("?");
+        var modlist = "0";
+        if (mystr.length == 2) {
+            var temp = mystr[1].split("&");
+            for (var i = 0; i < temp.length; i++) {
+                var strlist = temp[i].split("=");
+                if (strlist[0] == "mod") {
+                    modlist = strlist[1];
+                    break;
+                }
+            }
+        }
+        jQuery.ajax({
+            url: "getLoginmsg.aspx?mod=login&act=check&modlist=" + modlist + "&rand=" + Math.random(),
+            async: true,
+            success: function(responseText, statusText) {
+                //alert(responseText);
+                if (responseText == "err") {
+                    //alert("11");
+                    var time = Date();
+                    var k = window.showModalDialog('SampleLogin.aspx?time=' + time, '', 'dialogWidth:300px;dialogHeight:250px;Help:No;Status:No;');
+
+                    if (k == "ok") {
+                        top.MainFrame.location = hrefStr;
+                    }
+                    else {
+                        alert("登陆错误");
+                        return false;
+                    }
+                }
+                else
+                    top.MainFrame.location = hrefStr;
+            }
+        });
+
+    }
+    function getMenuList(obj) {
+
+        jQuery.ajax({
+            url: "getLoginmsg.aspx?mod=login&act=check&rand=" + Math.random(),
+            async: false,
+            success: function(responseText, statusText) {
+
+                if (responseText == "err") {
+                    var time = Date();
+                    var k = window.showModalDialog('SampleLogin.aspx?time=' + time, '', 'dialogWidth:300px;dialogHeight:250px;Help:No;Status:No;');
+
+                    if (k != "ok") {
+                        alert("登陆错误");
+                        return false;
+                    }
+                }
+            }
+        });
+        var mylist = document.getElementsByName("topkey");
+
+        if (mylist[obj - 1].dd == "S")
+            return;
+
+        var mycount = 1;
+        for (var i = 1; i <= mylist.length; i++) {
+            if (mylist[i - 1].className == mylist[obj - 1].className)
+                mycount = i;
+            mylist[i - 1].className = "leftmenu" + i;
+            mylist[i - 1].dd = "T";
+        }
+        mylist[obj - 1].dd = "S";
+        mylist[obj - 1].className = "menusel" + mycount;
+
+        jQuery.ajax({
+            url: "../SysMng/getLoginmsg.aspx?mod=menu&act=leftmenu&myid=" + obj + "&rand=" + Math.random(),
+            async: true,
+            success: function(responseText, statusText) {
+                if (responseText == "1") {
+                    alert("未能收到信息");   //未能收到信息
+                }
+                else if (responseText == "2") {
+                    alert("获取数据出错");     //获取数据出错
+                }
+                else {
+
+                    jQuery('#nav').html(responseText);
+                }
+            }
+        });
+
+        //11-文管中心
+        // if (obj == 11) {
+        // OpenUrl('../DOC/DocumentManage.aspx?mod=1101');
+        // }
+    }
+
+    function loadInit() {
+        if (top.location.href.GetValue("mod") != null || top.location.href.GetValue("murl")) {
+            InitMemuList();
+        }
+        else {
+            getMenuList(1);
+        }
+    }
+    function InitMemuList() {
+        var mystr = top.location.href.GetValue("mod");
+        jQuery.ajax({
+            url: "getLoginmsg.aspx?mod=login&act=check&rand=" + Math.random(),
+            async: false,
+            success: function(responseText, statusText) {
+                if (responseText == "err") {
+                    //alert("11");
+                    var time = Date();
+                    var k = window.showModalDialog('SampleLogin.aspx?time=' + time, '', 'dialogWidth:300px;dialogHeight:250px;Help:No;Status:No;');
+
+                    if (k != "ok") {
+                        alert("登陆错误");
+                        return false;
+                    }
+                }
+            }
+        });
+        if (mystr.length % 2 == 0)
+            temp = mystr.substr(0, 2);
+        else
+            temp = mystr.substr(0, 1);
+        var obj = temp;
+        var mylist = document.getElementsByName("topkey");
+        if (mylist[obj - 1].dd == "S")
+            return;
+        var mycount = 1;
+        for (var i = 1; i <= mylist.length; i++) {
+            if (mylist[i - 1].className == mylist[obj - 1].className)
+                mycount = i;
+            mylist[i - 1].className = "leftmenu" + i;
+            mylist[i - 1].dd = "T";
+        }
+        mylist[obj - 1].dd = "S";
+        mylist[obj - 1].className = "menusel" + mycount;
+
+        jQuery.ajax({
+            url: "../SysMng/getLoginmsg.aspx?mod=menu&act=leftmenu&myid=" + obj + "&rand=" + Math.random(),
+            async: true,
+            success: function(responseText, statusText) {
+                if (responseText == "1") {
+                    alert("未能收到信息");   //未能收到信息
+                }
+                else if (responseText == "2") {
+                    alert("获取数据出错");     //获取数据出错
+                }
+                else {
+                    //alert(responseText);
+                    jQuery('#nav').html(responseText);
+                }
+            }
+        });
+
+        if (top.location.href.GetValue("v") != null) {
+
+            var tostr = top.location.href.GetValue("v").split("-");
+            var count = 0;
+            var url = "../";
+            for (var i = 0; i < tostr.length; i++) {
+                if (count == 0)
+                    url += tostr[i];
+                else
+                    url += "/" + tostr[i];
+                count++;
+            }
+            if (top.location.href.GetValue("noticeId") != null)
+                top.MainFrame.location = url + ".aspx?mod=" + top.location.href.GetValue("mod") + "&noticeId=" + top.location.href.GetValue("noticeId") + "&type=" + top.location.href.GetValue("type");
+            else
+            if (top.location.href.GetValue("menuId") != null)
+                top.MainFrame.location = url + ".aspx?mod=" + top.location.href.GetValue("mod") + "&menuId=" + top.location.href.GetValue("menuId") + "&catalogId=" + top.location.href.GetValue("catalogId");
+            else
+                top.MainFrame.location = url + ".aspx?mod=" + top.location.href.GetValue("mod") + "&myid=" + top.location.href.GetValue("myid") + "&type=" + top.location.href.GetValue("type");
+        } else if (top.location.href.GetValue("murl") != null) {
+            top.MainFrame.location = top.location.href.GetValue("murl");
+
+        }
+
+    }
+
+    function selectMenu(temp) {
+        if (temp == 1) {
+            document.getElementById("selectmenu1").className = "lastmenuon";
+            document.getElementById("selectmenu2").className = "lastmenuout";
+            document.getElementById("lastmenu1").style.display = "block";
+            document.getElementById("lastmenu2").style.display = "none";
+        }
+        else {
+            document.getElementById("selectmenu1").className = "lastmenuout";
+            document.getElementById("selectmenu2").className = "lastmenuon";
+
+            document.getElementById("lastmenu1").style.display = "none";
+            document.getElementById("lastmenu2").style.display = "block";
+        }
+    }
+</script>
+</body>
+</html>
