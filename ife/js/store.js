@@ -2,6 +2,17 @@
  * Created by Administrator on 2017/3/9.
  */
 // JavaScript Document
+//添加鼠标事件，兼容--ch
+function addEventListener(ele,type,func){
+    if(ele.addEventListener){
+        return ele.addEventListener(type, func);
+    }else if(ele.attachEvent){
+        return ele.addachEvent('on'+type, func);
+    }else{
+        return ele['on'+type] = func;
+    }
+}
+
 function GridViewColor(GridViewId, NormalColor, AlterColor, HoverColor, SelectColor) {
     //获取所有要控制的行 20140526 chrome issue to return --- chen_sj
 //    var temp = document.getElementsByName(GridViewId);
@@ -15,22 +26,22 @@ function GridViewColor(GridViewId, NormalColor, AlterColor, HoverColor, SelectCo
         //如果指定了鼠标指向的背景色，则添加onmouseover/onmouseout事件
         //处于选中状态的行发生这两个事件时不改变颜色
         if (HoverColor != "") {
-            AllRows[i].onmouseover = function() { if (!this.selected) this.style.background = HoverColor; }
+            AllRows[i].onmouseover = function() { if (!this.selected) this.style.background = HoverColor; };
             if (i % 2 == 0) {
-                AllRows[i].onmouseout = function() { if (!this.selected) this.style.background = NormalColor; }
+                AllRows[i].onmouseout = function() { if (!this.selected) this.style.background = NormalColor; };
             }
             else {
-                AllRows[i].onmouseout = function() { if (!this.selected) this.style.background = AlterColor; }
+                AllRows[i].onmouseout = function() { if (!this.selected) this.style.background = AlterColor; };
             }
         }
         //如果指定了鼠标点击的背景色，则添加onclick事件
         //在事件响应中修改被点击行的选中状态
         if (SelectColor != "") {
             AllRows[i].onclick = function() {
-                var nodes = this.parentNode.childNodes;
+                //修改childNodes为children后 兼容chrome与ie ---ch
+                var nodes = this.parentNode.children;
                 for (var i = 0; i < nodes.length; i++) {
                     if (i % 2 == 0) {
-                        console.log(nodes[i]);
                         nodes[i].style.backgroundColor = NormalColor;
                     }
                     else
@@ -42,13 +53,30 @@ function GridViewColor(GridViewId, NormalColor, AlterColor, HoverColor, SelectCo
                 this.selected = !this.selected;
             }
         }
+
+        //修改后 兼容chrome与ie ---ch
+        //if (SelectColor != "") {
+        //    AllRows[i].onclick = function() {
+        //        for (var l = 0; l < AllRows.length; l++) {
+        //            if (l % 2 == 0) {
+        //                AllRows[l].style.backgroundColor = NormalColor;
+        //            }
+        //            else
+        //                AllRows[l].style.backgroundColor = AlterColor;
+        //            AllRows[l].selected = false;
+        //        }
+        //        //alert(this.selected);
+        //        this.style.background = SelectColor;
+        //        this.selected = !this.selected;
+        //    }
+        //}
     }
 }
 
 //全选操作
 function setAll() {
     var temp = [];
-    //兼容ie6
+    //兼容chrome
     document.getElementsByName("key").length > 0 ? temp = document.getElementsByName("key") : temp = $("#showlisttbody input");
     var count = 0;
     for (var i = 0; i < temp.length; i++) {
