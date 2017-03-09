@@ -27,10 +27,9 @@ function GridViewColor(GridViewId, NormalColor, AlterColor, HoverColor, SelectCo
         //在事件响应中修改被点击行的选中状态
         if (SelectColor != "") {
             AllRows[i].onclick = function() {
-                var nodes = this.parentNode.childNodes;
+                var nodes = this.parentNode.children;
                 for (var i = 0; i < nodes.length; i++) {
                     if (i % 2 == 0) {
-                        console.log(nodes[i]);
                         nodes[i].style.backgroundColor = NormalColor;
                     }
                     else
@@ -619,4 +618,3 @@ function showLoading() {
 function hidnLoading() {
     $("#loading").css("display", "none");
 }
-

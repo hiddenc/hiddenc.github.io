@@ -22,11 +22,11 @@
                 <td>
                     <div class="newbodylist">
                         <div>
-                            <select name="" id="">
-                                <option value="">姓名</option>
-                                <option value="">工号</option>
-                                <option value="">部门</option>
-                                <option value="">身份证号</option>
+                            <select name="" id="selectStyle">
+                                <option value="">正常</option>
+                                <option value="">全部</option>
+                                <option value="">离职</option>
+                                <option value="">停薪离职</option>
                             </select>
                             <input type="radio" name="c-SearchName" checked id="c-SN1"><label for="c-SN1">姓名</label>
                             <input type="radio" name="c-SearchName"  id="c-SN2"><label for="c-SN2">工号</label>
@@ -128,7 +128,44 @@
 
                     <div class="showlist">
                         <div id="tablelist">
+                            <table style="width: 100%;">
+
+                            </table>
                             <table class="showlisttable" id="showlisttable">
+                                <tr id="searchList">
+                                    <td></td>
+                                    <td><input type="text" id="txtEMPNO" placeholder="输入工号"/></td>
+                                    <td><input type="text" placeholder="输入卡号"/></td>
+                                    <td><input type="text" id="txtEMPNAME" placeholder="输入姓名"/></td>
+                                    <td><select id="txtSEXS">
+                                        <option value="">全部</option>
+                                        <option value="1">男</option>
+                                        <option value="2">女</option>
+                                    </select></td>
+                                    <td><input type="text" id="txtDEPTNAME" placeholder="选择部门"/></td>
+                                    <td><input type="text" placeholder="输入职务"/></td>
+                                    <td><input type="text" id="txtStartDate" placeholder="选择入职日期"/></td>
+                                    <td><select name="txtACCID" id="txtACCID">
+                                        <option value="">全部</option>
+                                        <option value="LAHH">东莞环华</option>
+                                        <option value="GZHH">广州环华</option>
+                                        <option value="SHUF">环美上海</option>
+                                        <option value="HZHJ">杭州杭家</option>
+                                        <option value="JXHH">嘉兴环华</option>
+                                        <option value="JXHM">嘉兴环美</option>
+                                        <option value="HHJX">环华经销</option>
+                                        <option value="TQMQ">东莞台全</option>
+                                        <option value="TSSY">台升实业</option>
+                                        <option value="TXYY">台心医院</option>
+                                        <option value="DGTS">台升家具</option>
+                                        <option value="RSPC">RS订单</option>
+                                        <option value="DGJM">东莞金茂</option>
+                                        <option value="DGKJ">东莞康健</option>
+                                        <option value="JSKJ">嘉善康健</option>
+                                        <option value="SZUF">环美苏州</option>
+                                    </select></td>
+                                    <td id="searchBtn"><a href="javascript:SetSearch()" class="butlist3">查询</a></td>
+                                </tr>
                                 <thead>
                                 <tr>
                                     <th width="40"><a href="javascript:setAll();" class="selectall">全部</a></th>
@@ -348,6 +385,15 @@
     </div>
 </form>
 <script type="text/javascript">
+    function addEvent(ele,type,handler){
+        if(document.addEventListener){
+            ele.addEventListener(type,handler,false);
+        }else if(document.attachEvent){
+            ele.attachEvent("on"+type,handler);
+        }else{
+            ele["on"+type] = handler;
+        }
+    }
     window.onload = function() {
         if (location.href.GetValue("search") != null) {
             var mytemp = location.href.GetValue("search").split(",");
@@ -370,6 +416,23 @@
             if (document.getElementById("txtSearchList").value == "") {
                 SetSearch();
             }
+        }
+        //测试代码 须删除
+        GridViewColor('showlisttbody', '#FFFFFF', '#F6F6F6', '#FEF5CC', '#FECD00');
+        //隐藏搜索框
+        $('#searchList input').css("visibility","hidden");
+        var searchTd = $("#searchList td");
+        console.log(searchTd);
+        for(var i =0;i<searchTd.length;i++){
+            addEvent(searchTd[i],"click",function(){
+                if(this.getElementsByTagName("input")){
+                    this.getElementsByTagName("input")[0].style.visibility = "visible";
+                    this.getElementsByTagName("input")[0].focus();
+                }else{
+                    this.style.visibility = "visible";
+                }
+
+            })
         }
     }
     function SetSearch() {
