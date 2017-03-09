@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>旧OA table升级</title>
+    <link rel="stylesheet" href="css/Table.css"/>
+    <link rel="stylesheet" href="css/StyleBody.css"/>
+    <link rel="stylesheet" href="css/Style.css"/>
+    <script src="js/store.js"></script>
+    <script src="http://cdn.bootcss.com/jquery/1.4.2/jquery.min.js"></script>
+</head>
+<body>
+<form name="form1" method="post" action="EmployeeMng.aspx?mod=402&amp;pid=null&amp;page=1&amp;search=%2c%2c%2c%2c%2c%2c%2c%2c1" id="form1" _lpchecked="1">
+    <div id="sitelist" style="width:100%; height:auto;">
+        <div class="bodytitle">
+            <a href="javascript:void(0);">首页</a><span> &gt; </span><a href="javascript:void(0);">人事管理</a><span> &gt; </span><a href="javascript:void(0);">员工管理</a>
+        </div>
+        <table class="bodycss">
+            <tbody>
+            <tr>
+                <td style="width:10px;"></td>
+                <td>
+                    <div class="newbodylist">
+                        <div>
+                            <select name="" id="">
+                                <option value="">姓名</option>
+                                <option value="">工号</option>
+                                <option value="">部门</option>
+                                <option value="">身份证号</option>
+                            </select>
+                            <input type="radio" name="c-SearchName" checked id="c-SN1"><label for="c-SN1">姓名</label>
+                            <input type="radio" name="c-SearchName"  id="c-SN2"><label for="c-SN2">工号</label>
+                            <input type="radio" name="c-SearchName"  id="c-SN3"><label for="c-SN3">部门</label>
+                            <input type="radio" name="c-SearchName"  id="c-SN4"><label for="c-SN4">身份证号</label>
+                            <input type="text"/><br/>
+                            入职日期：
+                            <input id="txtStartDate" type="text" onfocus="WdatePicker({skin:'blue',isShowWeek:true,dateFmt:'yyyy-MM-dd',alwaysUseStartDate:true})"
+                                   class="Wdate">-<input id="txtEndDate" type="text"
+                                                         onfocus="WdatePicker({skin:'blue',isShowWeek:true,dateFmt:'yyyy-MM-dd',alwaysUseStartDate:true})" class="Wdate">
+                            <button>查询</button>
+                        </div>
+                        <div class="newbodylisttitle">查询条件</div>
+                        <table class="tablesorter">
+                            <tbody>
+                            <tr>
+                                <td align="left">工号</td>
+                                <td>
+                                    <input id="txtEMPNO" type="text" autocomplete="off">
+                                </td>
+                                <td align="left">姓名</td>
+                                <td>
+                                    <input id="txtEMPNAME" type="text">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="left">身份证号：</td>
+                                <td>
+                                    <input id="txtPERSONNO" type="text">
+                                </td>
+                                <td align="left">性别：</td>
+                                <td>
+                                    <select id="txtSEXS">
+                                        <option value="">全部</option>
+                                        <option value="1">男</option>
+                                        <option value="2">女</option>
+                                    </select>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td align="left">入职日期：</td>
+                                <td>
+                                    <input id="txtStartDate" type="text" onfocus="WdatePicker({skin:'blue',isShowWeek:true,dateFmt:'yyyy-MM-dd',alwaysUseStartDate:true})"
+                                           class="Wdate">-<input id="txtEndDate" type="text"
+                                                                 onfocus="WdatePicker({skin:'blue',isShowWeek:true,dateFmt:'yyyy-MM-dd',alwaysUseStartDate:true})" class="Wdate">
+                                </td>
+                                <td align="left">事业体：</td>
+                                <td>
+                                    <select name="txtACCID" id="txtACCID">
+                                        <option value="">全部</option>
+                                        <option value="LAHH">东莞市环华家居用品有限公司</option>
+                                        <option value="GZHH">广州环华家具有限公司</option>
+                                        <option value="SHUF">环美家具(上海)有限公司</option>
+                                        <option value="HZHJ">杭州杭家家具用品有限公司</option>
+                                        <option value="JXHH">嘉兴环华家具有限公司</option>
+                                        <option value="JXHM">嘉兴环美家居用品有限公司</option>
+                                        <option value="HHJX">环华经销商管理有限公司</option>
+                                        <option value="TQMQ">东莞台全木器厂</option>
+                                        <option value="TSSY">台升实业有限公司</option>
+                                        <option value="TXYY">东莞台心医院实业有限公司</option>
+                                        <option value="DGTS">东莞台升家具有限公司</option>
+                                        <option value="RSPC">RS订单部</option>
+                                        <option value="DGJM">东莞金茂建造开发有限公司</option>
+                                        <option value="DGKJ">东莞康健企业管理咨询有限公司</option>
+                                        <option value="JSKJ">嘉善康健企业管理咨询有限公司</option>
+                                        <option value="SZUF">环美家具(上海)有限公司苏州分公司</option>
+
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="left">状态</td>
+                                <td>
+                                    <select id="txtstutas">
+                                        <option value="">全部</option>
+                                        <option value="1" selected="selected">正常</option>
+                                        <option value="0">离职</option>
+                                        <option value="2">停薪留职</option>
+                                    </select>
+                                </td>
+                                <td align="right">部门：</td>
+                                <td>
+                                    <input id="txtDEPTNO" type="hidden" value="">
+                                    <input id="txtDEPTNAME" type="text">
+                                    <input id="Button4" type="button" class="butselected" onclick="selectedDept()" value="">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="left"></td>
+                                <td colspan="3">
+                                    <a href="javascript:SetSearch()" class="butlist3">查询</a>
+
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="showlist">
+                        <div id="tablelist">
+                            <table class="showlisttable" id="showlisttable">
+                                <thead>
+                                <tr>
+                                    <th width="40"><a href="javascript:setAll();" class="selectall">全部</a></th>
+                                    <th>工号</th>
+                                    <th>卡号</th>
+                                    <th>姓名</th>
+                                    <th>性别</th>
+                                    <th>部门</th>
+                                    <th>职务</th>
+                                    <th>入职日期</th>
+                                    <th>事业体</th>
+                                    <th>操作</th>
+                                </tr>
+                                </thead>
+                                <tbody id="showlisttbody">
+                                <tr style="background: rgb(255, 255, 255);">
+                                    <td><input type="checkbox" md="20947" id="key"></td>
+                                    <td>20947</td>
+                                    <td>998157</td>
+                                    <td>李洪偉</td>
+                                    <td>男</td>
+                                    <td>总部</td>
+                                    <td>經理</td>
+                                    <td>2009-08-03</td>
+                                    <td>广州环华</td>
+                                    <td><a href='javascript:setViewto("20947","402","null");' class="listlink">视图</a><a href='javascript:setUPDto("20947","402","null");'
+                                                                                                                        class="listlink">修改</a><a
+                                            href='javascript:delRecordlist("HRIo.aspx","employee","del","20947","1","12");' class="listlink">删除</a></td>
+                                </tr>
+                                <tr style="background: rgb(246, 246, 246);">
+                                    <td><input type="checkbox" md="28019" id="key"></td>
+                                    <td>28019</td>
+                                    <td>418193</td>
+                                    <td>官惠桃</td>
+                                    <td>女</td>
+                                    <td>營管部</td>
+                                    <td>專員</td>
+                                    <td>2012-10-15</td>
+                                    <td>东莞环华</td>
+                                    <td><a href='javascript:setViewto("28019","402","null");' class="listlink">视图</a><a href='javascript:setUPDto("28019","402","null");'
+                                                                                                                        class="listlink">修改</a><a
+                                            href='javascript:delRecordlist("HRIo.aspx","employee","del","28019","1","12");' class="listlink">删除</a></td>
+                                </tr>
+                                <tr style="background: rgb(255, 255, 255);">
+                                    <td><input type="checkbox" md="11353" id="key"></td>
+                                    <td>11353</td>
+                                    <td></td>
+                                    <td>郑皆法</td>
+                                    <td>男</td>
+                                    <td>營管部</td>
+                                    <td>專員</td>
+                                    <td>2014-06-17</td>
+                                    <td>东莞环华</td>
+                                    <td><a href='javascript:setViewto("11353","402","null");' class="listlink">视图</a><a href='javascript:setUPDto("11353","402","null");'
+                                                                                                                        class="listlink">修改</a><a
+                                            href='javascript:delRecordlist("HRIo.aspx","employee","del","11353","1","12");' class="listlink">删除</a></td>
+                                </tr>
+                                <tr style="background: rgb(246, 246, 246);">
+                                    <td><input type="checkbox" md="11354" id="key"></td>
+                                    <td>11354</td>
+                                    <td></td>
+                                    <td>龚维维</td>
+                                    <td>女</td>
+                                    <td>營管部</td>
+                                    <td>汉族</td>
+                                    <td>2014-06-17</td>
+                                    <td>东莞环华</td>
+                                    <td><a href='javascript:setViewto("11354","402","null");' class="listlink">视图</a><a href='javascript:setUPDto("11354","402","null");'
+                                                                                                                        class="listlink">修改</a><a
+                                            href='javascript:delRecordlist("HRIo.aspx","employee","del","11354","1","12");' class="listlink">删除</a></td>
+                                </tr>
+                                <tr style="background: rgb(255, 255, 255);">
+                                    <td><input type="checkbox" md="26014" id="key"></td>
+                                    <td>26014</td>
+                                    <td>850070</td>
+                                    <td>颜光豪</td>
+                                    <td>男</td>
+                                    <td>營管部</td>
+                                    <td>專員</td>
+                                    <td>2011-04-08</td>
+                                    <td>东莞环华</td>
+                                    <td><a href='javascript:setViewto("26014","402","null");' class="listlink">视图</a><a href='javascript:setUPDto("26014","402","null");'
+                                                                                                                        class="listlink">修改</a><a
+                                            href='javascript:delRecordlist("HRIo.aspx","employee","del","26014","1","12");' class="listlink">删除</a></td>
+                                </tr>
+                                <tr style="background: rgb(246, 246, 246);">
+                                    <td><input type="checkbox" md="25352" id="key"></td>
+                                    <td>25352</td>
+                                    <td>471115</td>
+                                    <td>刘小亮</td>
+                                    <td>男</td>
+                                    <td>營管部</td>
+                                    <td>專員</td>
+                                    <td>2010-12-03</td>
+                                    <td>东莞环华</td>
+                                    <td><a href='javascript:setViewto("25352","402","null");' class="listlink">视图</a><a href='javascript:setUPDto("25352","402","null");'
+                                                                                                                        class="listlink">修改</a><a
+                                            href='javascript:delRecordlist("HRIo.aspx","employee","del","25352","1","12");' class="listlink">删除</a></td>
+                                </tr>
+                                <tr style="background: rgb(255, 255, 255);">
+                                    <td><input type="checkbox" md="10899" id="key"></td>
+                                    <td>10899</td>
+                                    <td></td>
+                                    <td>谭亚林</td>
+                                    <td>男</td>
+                                    <td>營管部</td>
+                                    <td>設計師</td>
+                                    <td>2014-05-20</td>
+                                    <td>东莞环华</td>
+                                    <td><a href='javascript:setViewto("10899","402","null");' class="listlink">视图</a><a href='javascript:setUPDto("10899","402","null");'
+                                                                                                                        class="listlink">修改</a><a
+                                            href='javascript:delRecordlist("HRIo.aspx","employee","del","10899","1","12");' class="listlink">删除</a></td>
+                                </tr>
+                                <tr style="background: rgb(246, 246, 246);">
+                                    <td><input type="checkbox" md="22204" id="key"></td>
+                                    <td>22204</td>
+                                    <td>347116</td>
+                                    <td>施海珍</td>
+                                    <td>女</td>
+                                    <td>營管部</td>
+                                    <td>專員</td>
+                                    <td>2009-11-23</td>
+                                    <td>东莞环华</td>
+                                    <td><a href='javascript:setViewto("22204","402","null");' class="listlink">视图</a><a href='javascript:setUPDto("22204","402","null");'
+                                                                                                                        class="listlink">修改</a><a
+                                            href='javascript:delRecordlist("HRIo.aspx","employee","del","22204","1","12");' class="listlink">删除</a></td>
+                                </tr>
+                                <tr style="background: rgb(255, 255, 255);">
+                                    <td><input type="checkbox" md="23632" id="key"></td>
+                                    <td>23632</td>
+                                    <td>830059</td>
+                                    <td>罗宁</td>
+                                    <td>男</td>
+                                    <td>環美家居</td>
+                                    <td>課長</td>
+                                    <td>2010-04-21</td>
+                                    <td>东莞环华</td>
+                                    <td><a href='javascript:setViewto("23632","402","null");' class="listlink">视图</a><a href='javascript:setUPDto("23632","402","null");'
+                                                                                                                        class="listlink">修改</a><a
+                                            href='javascript:delRecordlist("HRIo.aspx","employee","del","23632","1","12");' class="listlink">删除</a></td>
+                                </tr>
+                                <tr style="background: rgb(246, 246, 246);">
+                                    <td><input type="checkbox" md="HH0001" id="key"></td>
+                                    <td>HH0001</td>
+                                    <td>177233</td>
+                                    <td>郭全量</td>
+                                    <td>男</td>
+                                    <td>環美家居</td>
+                                    <td>經理</td>
+                                    <td>2008-05-01</td>
+                                    <td>东莞环华</td>
+                                    <td><a href='javascript:setViewto("HH0001","402","null");' class="listlink">视图</a><a href='javascript:setUPDto("HH0001","402","null");'
+                                                                                                                         class="listlink">修改</a><a
+                                            href='javascript:delRecordlist("HRIo.aspx","employee","del","HH0001","1","12");' class="listlink">删除</a></td>
+                                </tr>
+                                <tr style="background: rgb(255, 255, 255);">
+                                    <td><input type="checkbox" md="28491" id="key"></td>
+                                    <td>28491</td>
+                                    <td></td>
+                                    <td>徐彪</td>
+                                    <td>男</td>
+                                    <td>環美家居</td>
+                                    <td>專員</td>
+                                    <td>2013-04-09</td>
+                                    <td>东莞环华</td>
+                                    <td><a href='javascript:setViewto("28491","402","null");' class="listlink">视图</a><a href='javascript:setUPDto("28491","402","null");'
+                                                                                                                        class="listlink">修改</a><a
+                                            href='javascript:delRecordlist("HRIo.aspx","employee","del","28491","1","12");' class="listlink">删除</a></td>
+                                </tr>
+                                <tr style="background: rgb(246, 246, 246);">
+                                    <td><input type="checkbox" md="HH0009" id="key"></td>
+                                    <td>HH0009</td>
+                                    <td>314416</td>
+                                    <td>吳東倫</td>
+                                    <td>男</td>
+                                    <td>環美家居</td>
+                                    <td>經理</td>
+                                    <td>2010-10-11</td>
+                                    <td>东莞环华</td>
+                                    <td><a href='javascript:setViewto("HH0009","402","null");' class="listlink">视图</a><a href='javascript:setUPDto("HH0009","402","null");'
+                                                                                                                         class="listlink">修改</a><a
+                                            href='javascript:delRecordlist("HRIo.aspx","employee","del","HH0009","1","12");' class="listlink">删除</a></td>
+                                </tr>
+                                </tbody>
+                            </table>
+                            <div id="pagerlist"><span class="nowpage">        页次 <span id="mynowpage">1</span>/<span id="mytotalpage">13</span> 本页<span id="myrownum">12</span>条记录     </span>
+
+                                <div class="pagerlink"><a href='javascript:setFirstPage("tablelist", "HRIo.aspx", "employee",12);'>首 页</a> <a
+                                        href='javascript:setPrevPage("tablelist", "HRIo.aspx", "employee",12);'>上一页</a> <a
+                                        href='javascript:setNextPage("tablelist", "HRIo.aspx", "employee",12);'>下一页</a> <a
+                                        href='javascript:SetLastPage("tablelist", "HRIo.aspx", "employee",12);'>尾 页</a></div>
+                                <div class="pagergoto"><input type="text" id="gotopager" name="gotopager"> <input type="button" class="gotobutton"
+                                                                                                                  onclick="setGotoPage(&quot;tablelist&quot;, &quot;HRIo.aspx&quot;, &quot;employee&quot;,12)"
+                                                                                                                  value=""></div>
+                            </div>
+                        </div>
+                        <!--end of tablelist-->
+                    </div>
+                    <!--end of showlist-->
+                    <div class="buttonlist">
+                        <a id="btNew" class="butlist3" href="javascript:__doPostBack('btNew','')">新增</a>
+
+                        <div id="delvis">
+                            <a href="javascript:delAllRecord('HRIo.aspx','employee','del');" class="butlist5">批量删除</a>
+                        </div>
+                        <a id="btExport" class="butlist3" href="javascript:__doPostBack('btExport','')">导出</a>
+                    </div>
+                    <div style="display:none;">
+                        <input name="txtSearchList" type="text" id="txtSearchList">
+                    </div>
+
+                </td>
+                <td style="width:10px;"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</form>
+<script type="text/javascript">
+    window.onload = function() {
+        if (location.href.GetValue("search") != null) {
+            var mytemp = location.href.GetValue("search").split(",");
+            if (mytemp.length == 9) {
+                document.getElementById("txtEMPNO").value = mytemp[0];
+                document.getElementById("txtEMPNAME").value = mytemp[1];
+                document.getElementById("txtPERSONNO").value = mytemp[2];
+                document.getElementById("txtSEXS").value = mytemp[3];
+                document.getElementById("txtStartDate").value = mytemp[4];
+                document.getElementById("txtEndDate").value = mytemp[5];
+                document.getElementById("txtACCID").value = mytemp[6];
+                document.getElementById("txtDEPTNO").value = mytemp[7];
+                document.getElementById("txtstutas").value = mytemp[8];
+                document.getElementById("txtSearchList").value = location.href.GetValue("search");
+                //alert(location.href.GetValue("page"));
+                loadAccountPager("tablelist", "HRIo.aspx", "employee", "list", location.href.GetValue("page"), "12", location.href.GetValue("search"));
+            }
+        }
+        else {
+            if (document.getElementById("txtSearchList").value == "") {
+                SetSearch();
+            }
+        }
+    }
+    function SetSearch() {
+        var mystr = "";
+        mystr += document.getElementById("txtEMPNO").value;
+        mystr += "," + document.getElementById("txtEMPNAME").value;
+        mystr += "," + document.getElementById("txtPERSONNO").value;
+        mystr += "," + document.getElementById("txtSEXS").value;
+        mystr += "," + document.getElementById("txtStartDate").value;
+        mystr += "," + document.getElementById("txtEndDate").value;
+        mystr += "," + document.getElementById("txtACCID").value;
+        mystr += "," + document.getElementById("txtDEPTNO").value;
+        mystr += "," + document.getElementById("txtstutas").value;
+        document.getElementById("txtSearchList").value = mystr;
+        loadAccountPager("tablelist", "HRIo.aspx", "employee", "list", "1", "12", mystr);
+    }
+    function setUPDto(myid, mod, pid) {
+        top.MainFrame.location = "Employee/EmployeeTreat.aspx?myid=" + myid + "&mod=" + mod + "&pid=" + pid + "&page=" + document.getElementById("mynowpage").innerHTML + "&search=" + document.getElementById("txtSearchList").value;
+    }
+    function setViewto(myid, mod, pid) {
+        top.MainFrame.location = "Employee/EmployeeView.aspx?myid=" + myid + "&mod=" + mod + "&pid=" + pid + "&type=employee&page=" + document.getElementById("mynowpage").innerHTML + "&search=" + document.getElementById("txtSearchList").value;
+    }
+
+    function selectedDept() {
+        var time = Date();
+        var url = "../SYS/Dept/DeptSelected.aspx?accid=" + document.getElementById("txtACCID").value + "&time=" + time;
+//        var k = window.showModalDialog(url, '', 'dialogWidth:640px;dialogHeight:530px;Help:No;Status:No;');
+        //修改后 支持chrome
+        if(window.showModalDialog){
+            var k = window.showModalDialog(url, '', 'dialogWidth:640px;dialogHeight:530px;Help:No;Status:No;');
+        }else{
+            var k = window.open(url,"弹出窗口", "width=600,height=530,top=200,left=100,toolbar=no, menubar=no, scrollbars=no, resizable=no,location=no, status=no,alwaysRaised=yes,depended=yes");
+        }
+        if ((k != "") && (k != undefined)) {
+            var temp = k.split(":");
+            if (temp.length == 2) {
+                document.getElementById("txtDEPTNO").value = temp[0];
+                document.getElementById("txtDEPTNAME").value = temp[1];
+            }
+        }
+    }
+
+</script>
+</body>
+</html>

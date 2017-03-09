@@ -153,33 +153,29 @@
         <li><a href="javascript:getMenuList(3);" class="leftmenu3" name="topkey" dd="T"></a><span></span></li>
         <li><a href="javascript:getMenuList(4);" class="leftmenu4" name="topkey" dd="T"></a><span></span></li>
         <li><a href="javascript:getMenuList(5);" class="leftmenu5" name="topkey" dd="T"></a><span></span></li>
+        <li><a href="javascript:getMenuList(6);" class="leftmenu3" name="topkey" dd="T"></a><span></span></li>
+        <li><a href="javascript:getMenuList(7);" class="leftmenu4" name="topkey" dd="T"></a><span></span></li>
+        <li><a href="javascript:getMenuList(8);" class="leftmenu5" name="topkey" dd="T"></a><span></span></li>
+        <li><a href="javascript:getMenuList(9);" class="leftmenu3" name="topkey" dd="T"></a><span></span></li>
+        <li><a href="javascript:getMenuList(10);" class="leftmenu4" name="topkey" dd="T"></a><span></span></li>
+        <li><a href="javascript:getMenuList(11);" class="leftmenu5" name="topkey" dd="T"></a><span></span></li>
+        <li><a href="javascript:getMenuList(12);" class="leftmenu5" name="topkey" dd="T"></a><span></span></li>
     </ul>
 </div>
 <style>
 
     .topmenubg {
-
         float: left;
         width: 47px;
         background: #098E89;
     }
 
     .topmenubg ul {
-
         float: left;
         padding: 0;
         list-style: none;
         margin: 10px 0 0 0;
         text-align: center;
-    }
-
-    .topmenubg ul li span {
-        width: 35px;
-        display: block;
-        font-size: 0;
-        border-top: 1px solid #037572;
-        border-bottom: 1px solid #0CA5A3;
-        margin-top: 5px;
     }
 
     .topmenubg ul li a {
@@ -191,10 +187,20 @@
         margin: 0;
         padding: 0
     }
+    .topmenubg ul li span {
+        width: 35px;
+        display: block;
+        font-size: 0;
+        height: 0;
+        line-height: 0;
+        border-top: 1px solid #037572;
+        border-bottom: 1px solid #0CA5A3;
+        margin-top: 5px;
+    }
 
     .topmenubg ul li a p {
-        font-size: 12px;
-        line-height: 12px;
+        font-size: 11px;
+        line-height: 14px;
         letter-spacing: -1px;
         padding: 0;
         margin: 0;
@@ -227,8 +233,8 @@
 </style>
 <script type="text/javascript">
     jQuery(document).ready(function () {
-        var left_menu_img = ["btn.png", "btn2.png", "btn3.png", "btn4.png", "btn5.png"];
-        var left_menu_name = ["系统管理", "组织管理", "基本資料", "考勤管理", "福利管理"];
+        var left_menu_img = ["btn1.png", "btn2.png", "btn3.png", "btn4.png", "btn5.png","btn6.png","btn7.png","btn8.png","btn9.png","btn10.png","btn11.png","btn12.png"];
+        var left_menu_name = ["系统管理", "组织管理", "基本资料", "人事管理", "考勤管理", "福利管理","绩效管理","薪资管理","工作管理","工作表单","文管中心","总账管理"];
         for (var i = 0; i < left_menu_img.length; i++) {
             var ele = document.createElement("img");
             ele.src = "images/" + left_menu_img[i];

@@ -63,7 +63,7 @@ TreeNode.prototype = {
             }
         }
         //调整父节点箭头样式
-        this.parent.render(true, false)
+        this.parent.render(true, false);
     },
     //增加子节点
     addChild:function(text){
