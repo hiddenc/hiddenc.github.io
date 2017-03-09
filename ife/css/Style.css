@@ -1,0 +1,204 @@
+﻿.headbg {
+    width: 100%;
+    height: 68px;
+    background: url(headbg.gif) repeat-x;
+}
+
+.headlogo {
+    float: left;
+    width: 174px;
+    height: 21px;
+    background: url(headlogo.gif) no-repeat;
+    margin-top: 10px;
+    margin-left: 10px;
+}
+
+.topmenubg {
+    float: left;
+    width: 47px;
+    background: #336DC1;
+}
+
+.topmenubg ul {
+
+    float: left;
+    padding: 0;
+    list-style: none;
+    margin: 10px 0 0 0;
+    text-align: center;
+}
+
+.topmenubg ul li a {
+    text-decoration: none;
+}
+
+.topmenubg ul li img {
+    border: none;
+    margin: 0;
+    padding: 0
+}
+
+.topmenubg ul li span {
+    width: 35px;
+    display: block;
+    font-size: 0;
+    height: 0;
+    line-height: 0;
+    border-top:1px solid #255295;
+    border-bottom:1px solid #2A74DF;
+    margin-top: 5px;
+}
+
+.topmenubg ul li a p {
+    font-size: 11px;
+    line-height: 14px;
+    letter-spacing: -1px;
+    padding: 0;
+    margin: 0;
+}
+
+a.leftmenu1, a.leftmenu2, a.leftmenu3, a.leftmenu4, a.leftmenu5, a.leftmenu6, a.leftmenu7, a.leftmenu8, a.leftmenu9, a.leftmenu10, a.leftmenu11, a.leftmenu12, a.leftmenu13 {
+    background: none;
+    color: #fff;
+    display: block;
+    width: 45px;
+    height: 45px;
+    padding-bottom: 0;
+    margin-top: 5px;
+}
+
+a.leftmenu1:hover, a.leftmenu2:hover, a.leftmenu3:hover, a.leftmenu4:hover, a.leftmenu5:hover, a.leftmenu6:hover, a.leftmenu7:hover, a.leftmenu8:hover, a.leftmenu9:hover, a.leftmenu10:hover, a.leftmenu11:hover, a.leftmenu12:hover, a.leftmenu13:hover {
+    background: url(menu/btn_hover.png) no-repeat;
+}
+
+a.menusel1, a.menusel2, a.menusel3, a.menusel4, a.menusel5, a.menusel6, a.menusel7, a.menusel8, a.menusel9, a.menusel10, a.menusel11, a.menusel12, a.menusel13 {
+    background: url("menu/btn_active.png") no-repeat;
+    display: block;
+    color: #000;
+    width: 45px;
+    height: 45px;
+    margin-top: 5px;
+    padding-bottom: 0;
+}
+
+a.butlist3 {
+    float: left;
+    width: 57px;
+    height: 22px;
+    background: url(Buttom2-3Font.gif) no-repeat;
+    border: 0;
+    text-decoration: none;
+    font-size: 12px;
+    text-align: center;
+    color: #000000;
+    padding-top: 4px;
+    margin-left: 10px;
+}
+
+a.butlist3:hover {
+    background: url(Buttom2-3FontPress.gif) no-repeat;
+    color: #FFFFFF;
+}
+
+a.butlist5 {
+    float: left;
+    width: 83px;
+    height: 22px;
+    background: url(Buttom4-5Font.gif) no-repeat;
+    border: 0;
+    text-decoration: none;
+    font-size: 12px;
+    text-align: center;
+    color: #000000;
+    padding-top: 4px;
+    margin-left: 10px;
+}
+
+a.butlist5:hover {
+    background: url(Buttom4-5FontPress.gif) no-repeat;
+    color: #FFFFFF;
+}
+
+.butlist5 {
+    float: left;
+    width: 83px;
+    height: 22px;
+    line-height: 18px;
+    background: url(Buttom4-5Font.gif) no-repeat;
+    border: 0;
+    text-decoration: none;
+    font-size: 12px;
+    text-align: center;
+    color: #000000;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+.butlist5:hover {
+    background: url(Buttom4-5FontPress.gif) no-repeat;
+    color: #FFFFFF;
+}
+
+input:disabled {
+    color: #999;
+}
+
+input[disabled] {
+    color: #999;
+}
+
+* html input.disabled {
+    color: #999;
+}
+
+input:disabled:hover {
+    background: url(Buttom4-5Font.gif) no-repeat;
+    color: #999;
+}
+
+input[disabled]:hover {
+    background: url(Buttom4-5Font.gif) no-repeat;
+    color: #999;
+}
+
+* html input.disabled:hover {
+    background: url(Buttom4-5Font.gif) no-repeat;
+    color: #999;
+}
+
+#nav {
+    float: left;
+    margin: 0;
+    padding: 0;
+}
+
+#nav li ul {
+    margin: 0;
+    padding-left: 20px;
+}
+
+#nav li ul a.linkon {
+    color: #098D8B;
+}
+
+#nav li ul a:hover {
+    color: #098D8B;
+    text-decoration: underline;
+}
+
+.listlink {
+    color: #098D8B;
+    margin: 0 0 0 10px;
+    text-decoration: none;
+}
+
+a.listlink:hover {
+    color: #FF0000;
+}
+
+.gotobutton {
+    border: 0;
+    width: 58px;
+    height: 21px;
+    background: url(gotobutton.gif) no-repeat;
+}

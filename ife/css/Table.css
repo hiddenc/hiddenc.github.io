@@ -1,0 +1,125 @@
+﻿
+.SearchTable {
+    border: 1px;
+    width: 100%;
+    height: auto;
+    font-size: 12px;
+    color: #F3FFFF;
+    margin: 10px 0 0 0;
+}
+
+.bodycss {
+    width: 100%;
+    overflow: hidden;
+    border-collapse: collapse;
+}
+
+.showlisttable {
+    font-size: 15px;
+    position: relative;
+    /*display:block;*/
+    width: 100%;
+    border-collapse: collapse;
+}
+.showlisttable th {
+    padding: 7px 6px 5px 6px;
+    border-bottom: 1px solid #D5D5D5;
+    /*background: url(../Images/Table/tabletitle.gif) repeat-x;*/
+    color: #434345;
+}
+.showlisttable td {
+    text-align: center;
+    padding: 2px 3px 2px 3px;
+    /*border-bottom: 1px solid #D5D5D5;*/
+    border-bottom: 1px solid #efefef;
+    line-height: 36px;
+    color: #505050;
+}
+
+#showlisttbody tr {
+    /*cursor: hand;*/
+    cursor:pointer;
+}
+
+table.tablesorter {
+    font-size: 16px;
+    position: relative;
+    /*display:block;*/
+    width: 100%;
+    overflow: hidden;
+    border-collapse: collapse;
+    border: 1px solid #e1e1e1;
+}
+
+table.tablesorter thead tr th, table.tablesorter tfoot tr th {
+    padding: 5px 6px 5px 6px;
+    background: #95A4B7;
+    color: #333333;
+    border: 0;
+}
+
+table.tablesorter thead tr .header {
+    background-repeat: no-repeat;
+    background-position: center right;
+    cursor: pointer;
+}
+
+table.tablesorter tbody td {
+    color: #333333;
+    padding: 2px;
+    vertical-align: middle;
+    height: 20px;
+    border: 1px solid #e1e1e1;
+}
+
+.showlisttbody td {
+    color: #333333;
+    padding: 2px;
+    vertical-align: middle;
+    height: 20px;
+    border: 1px solid #e1e1e1;
+}
+
+table.tablesorter td table tr td {
+    font-size: 12px;
+    border: 0;
+}
+
+.newtablelist {
+    width: 720px;
+    font-size: 12px;
+    margin: 0 0 10px 10px;
+    border-collapse: collapse;
+}
+
+.newtablelist td {
+    border: 1px solid #e1e1e1;
+    font-size: 12px;
+}
+
+#viewlist1 table tr td, #viewlist2 table tr td, #viewlist3 table tr td, #viewlist4 table tr td {
+    height: 30px;
+}
+
+.TabTitlelist {
+    margin: 0 0 0 10px;
+}
+
+.selectall {
+    color: #333333;
+}
+
+.newEmployeeTable {
+    border-collapse: collapse;
+    width: 720px;
+}
+
+.newEmployeeTable td {
+    border: 1px solid #e1e1e1;
+    font-size: 12px;
+}
+
+.newEmployeeTable td input {
+    margin: 3px;
+
+}
