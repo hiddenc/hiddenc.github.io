@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>禁止用户输入</title>
+    <link rel="stylesheet" type="text/css" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" media="all">
+    <link rel="stylesheet" type="text/css" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" media="all">
+    <style>
+        .demo{
+            width:500px;
+            margin:0 auto;
+            padding-top:100px;
+        }
+    </style>
+</head>
+<body>
+    <div class="demo">
+        <form action="" id="form" class="form-horizontal" role="form">
+
+            <div class="form-group">
+                <label for="user" class="col-sm-2 control-label">用户名</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="user" placeholder="用户名" disabled/>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="password" class="col-sm-2 control-label">密码</label>
+                <div class="col-sm-10">
+                    <input type="password" class="form-control" id="password" placeholder="密码"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="msg" class="col-sm-2 control-label">
+                    备注
+                </label>
+                <div class="col-sm-10">
+                    <textarea class="form-control" name="" id="msg" placeholder="备注" cols="50" rows="10"></textarea>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox"/>记住
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                    <button type="button" class="btn btn-primary btn-block">提交</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
