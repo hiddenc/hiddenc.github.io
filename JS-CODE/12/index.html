@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>全选反选</title>
+    <link rel="stylesheet" type="text/css" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" media="all">
+    <link rel="stylesheet" type="text/css" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" media="all">
+    <style>
+        .demo{
+            width:500px;
+            margin:0 auto;
+            padding-top:100px;
+        }
+        .demo input{
+            margin-right:12px;
+        }
+    </style>
+</head>
+<body>
+<div class="demo">
+    <p><input type="checkbox" id="all"/><label for="all">全选</label></p>
+
+    <p><input type="checkbox" id="item1" name="item1"/><label for="item1">选项（一）</label></p>
+
+    <p><input type="checkbox" id="item2" name="item2"/><label for="item2">选项（二）</label></p>
+
+    <p><input type="checkbox" id="item3" name="item3"/><label for="item3">选项（三）</label></p>
+
+    <p><input type="checkbox" id="item4" name="item4"/><label for="item4">选项（四）</label></p>
+
+    <p><input type="checkbox" id="item5" name="item5"/><label for="item5">选项（五）</label></p>
+
+</div>
+<script>
+    (function(){
+        var checkall = document.getElementById('all');
+        var checkbox = document.getElementsByTagName('input');
+        var num = checkbox.length - 1;
+        var currentnum = 0;
+        for(var i = 1;i<checkbox.length;i++){
+            checkbox[i].onclick = function(){
+                if(!this.checked){
+                    checkall.checked = false;
+                    currentnum--;
+                }else{
+                    currentnum++;
+                    checkNum(currentnum);
+                }
+            }
+        }
+        function checkNum(e){
+            if(e == num){
+                checkall.checked = true;
+            }
+
+        }
+        function allCheck(){
+            for(var i = 1;i<checkbox.length;i++){
+                checkbox[i].checked = true;
+                currentnum = num;
+            }
+        }
+        function allCheckout(){
+            for(var i = 1;i<checkbox.length;i++){
+                checkbox[i].checked = false;
+                currentnum = 0;
+            }
+        }
+        checkall.onclick = function(){
+            if(checkall.checked){
+                allCheck();
+            }else{
+                allCheckout();
+            }
+        }
+
+    }());
+</script>
+</body>
+</html>

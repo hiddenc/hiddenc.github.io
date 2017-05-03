@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head lang="zh-cn">
+    <meta charset="UTF-8">
+    <title>级联菜单</title>
+    <link rel="stylesheet" type="text/css" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" media="all">
+    <link rel="stylesheet" type="text/css" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" media="all">
+    <style>
+        .demo{
+            width:500px;
+            margin:0 auto;
+            padding-top:100px;
+        }
+        li{
+            cursor: pointer;
+        }
+        .tip{
+            position: absolute;
+            left: 0;display:none;color:#fff;background:rgba(0,0,0, 0.6); line-height:25px;font-size:12px;padding:2px 5px;border-radius:5px;z-index:1
+        }
+    </style>
+</head>
+<body>
+<div class="demo">
+    <div class="tab">
+        <ol>
+            <li>铁路部门：火车票丢失需“先补买再退款”</li>
+            <li>陕西圈养大熊猫发生犬瘟热  一8岁大熊猫死亡</li>
+            <li>新修订新疆宗教事务条例施行 禁止宣扬极端思想</li>
+            <li>长征火箭从天而降瞬间被拍下 民众围观(图)</li>
+            <li>呼格父母:今后不再上访 打算先给儿子买个好墓地</li>
+        </ol>
+    </div>
+</div>
+<script>
+    (function(){
+        var li = document.getElementsByTagName('li');
+        var tip = createTip();
+        for(var i =0;i<li.length;i++){
+            li[i].onmousemove = function(e){
+                e = e || event;
+                tip.style.display = 'block';
+                tip.innerHTML = this.innerHTML;
+                tip.style.left = e.clientX + 10 + 'px';
+                tip.style.top = e.clientY + 15 + 'px';
+            };
+            li[i].onmouseout = function(){
+                tip.style.display = 'none';
+            }
+        }
+
+        function createTip(){
+            var div = document.createElement('div');
+            div.className = 'tip';
+            return document.body.appendChild(div);
+        }
+    })()
+</script>
+</body>
+</html>

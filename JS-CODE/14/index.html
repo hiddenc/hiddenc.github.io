@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head lang="zh-cn">
+    <meta charset="UTF-8">
+    <title>级联菜单</title>
+    <link rel="stylesheet" type="text/css" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" media="all">
+    <link rel="stylesheet" type="text/css" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" media="all">
+    <script src="https://cdn.bootcss.com/jquery/1.9.1/jquery.min.js"></script>
+    <style>
+        .demo{
+            width:500px;
+            margin:0 auto;
+            padding-top:100px;
+        }
+        .tab{
+            margin-top:10px;
+        }
+    </style>
+</head>
+<body>
+<div class="demo">
+    <div class="tab">
+        <select name="" id="province">
+        </select>
+        <select name="" id="city">
+        </select>
+    </div>
+</div>
+<script>
+    (function(){
+        var province = document.getElementById('province');
+        var city = document.getElementById('city');
+        $.getJSON('data.json',function(data){
+           for(var i = 0;i<data.length;i++){
+               console.log(data[i].name);
+               province.options.add(new Option(data[i].name,i));
+           }
+            city.options.add(new Option(data[0].name,0));
+            //默认北京
+            province.onchange = function(){
+                var num = this.value;
+                console.log(num);
+                console.log(data[num].city);
+                city.innerHTML = '';
+                for(var l =0;l<data[num].city.length;l++){
+                    city.options.add(new Option(data[num].city[l].name,l));
+                }
+
+            }
+        });
+    })()
+</script>
+</body>
+</html>
