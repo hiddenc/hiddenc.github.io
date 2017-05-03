@@ -3,14 +3,624 @@
 <head lang="en">
     <meta charset="UTF-8">
     <title>H5 拖拽式前端框架</title>
+    <link rel="stylesheet" href="css/main.css"/>
+    <script src="https://cdn.bootcss.com/jquery/1.12.0/jquery.min.js"></script>
     <!--检测浏览器功能支持情况的 JavaScript 库-->
     <script src="https://cdn.bootcss.com/modernizr/2.8.3/modernizr.min.js"></script>
 
 </head>
-<body>
+<body class="ca_wrapper caf_html caf_edit dimmable">
+<div id="content">
+    <div class="caf_wrapper">
+        <div class="clear">&nbsp;</div>
+        <div id="template_wrapper" style="min-height: 50px;" class="ui-sortable ui-droppable">
+            <div class="ui-draggable">
+                <div class="blocks-content"
+                     style="margin-top:80px;margin-right:20px;margin-bottom:80px;margin-left:20px;"
+                     data-style="margin-top:80px;margin-right:20px;margin-bottom:80px;margin-left:20px;">
+                    <div class="grid-container">
+                        <div class="blocks-text" contenteditable="true"><h1
+                                style="color: rgb(255, 255, 255); font-size: 90px; font-family: Forum,cursive; text-align: center;"
+                                data-forecolor="#ffffff" data-font-id="38">BaroQue</h1>
 
+                            <p style="color: rgb(255, 255, 255); text-align: center;" data-forecolor="#ffffff"><b
+                                    style="font-size: 18px;">520 情人节狂欢夜</b></p>
+
+                            <p style="color: rgb(255, 255, 255); text-align: center;" data-forecolor="#ffffff"><b
+                                    style="font-size: 18px;">派对时间：2017年5月19日 23:00</b><br></p></div>
+                    </div>
+                    <link href="//fonts.googleapis.com/css?family=Forum" rel="stylesheet" property="stylesheet"
+                          type="text/css">
+                </div>
+                <div class="row-tool" style="right: auto; display: none;">
+                    <div class="row-handle ui-sortable-handle" data-title="拖动"><i class="icon-move-1"></i></div>
+                    <div class="row-style" data-title="风格"><i class="icon-art-gallery"></i></div>
+                    <div class="row-up" data-title="上移"><i class="icon-up-open"></i></div>
+                    <div class="row-down" data-title="下移"><i class="icon-down-open"></i></div>
+                    <div class="row-copy" data-title="复制"><i class="icon-docs"></i></div>
+                    <div class="row-remove" data-title="移除"><i class="icon-cancel-1"></i></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<form id="editor-form" action="https://easypage.com/e/editor/modify" method="post">
+    <input type="hidden" id="is_publish" name="is_publish">
+    <input type="hidden" name="page_id" value="3432">
+    <input type="hidden" id="custom_page_cover" name="cover" value="">
+    <input type="hidden" name="system_url" value="pkmo14">
+    <textarea name="page_content" id="page_content" style="display:none">&lt;div class="blocks-content" style="margin-top:80px;margin-right:20px;margin-bottom:80px;margin-left:20px;" data-style="margin-top:80px;margin-right:20px;margin-bottom:80px;margin-left:20px;"&gt;&lt;div class="grid-container"&gt;&lt;div class="blocks-text"&gt;&lt;h1 style="color: rgb(255, 255, 255); font-size: 90px; font-family: Forum,cursive; text-align: center;" data-forecolor="#ffffff" data-font-id="38"&gt;BaroQue&lt;/h1&gt;&lt;p style="color: rgb(255, 255, 255); text-align: center;" data-forecolor="#ffffff"&gt;&lt;b style="font-size: 18px;"&gt;520 情人节狂欢夜&lt;/b&gt;&lt;/p&gt;&lt;p style="color: rgb(255, 255, 255); text-align: center;" data-forecolor="#ffffff"&gt;&lt;b style="font-size: 18px;"&gt;派对时间：2017年5月19日 23:00&lt;/b&gt;&lt;br&gt;&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;&lt;link href="//fonts.googleapis.com/css?family=Forum" rel="stylesheet" property="stylesheet" type="text/css"&gt;&lt;/div&gt; &lt;div class="blocks-content" style="background-color: rgb(255, 255, 255); margin: 20px 20px 0px; padding: 40px;" data-style="background-color:#ffffff;margin-top:20px;margin-right:20px;margin-bottom:0px;margin-left:20px;padding-top:40px;padding-right:40px;padding-bottom:40px;padding-left:40px;"&gt;&lt;div class="grid-container"&gt;&lt;div class="blocks-text"&gt;&lt;h1 style="text-align: center;"&gt;派对简介&lt;br&gt;&lt;/h1&gt;&lt;p style="text-align: center;"&gt;&lt;br&gt;&lt;/p&gt;&lt;p style="text-align: center;"&gt;Lorem Ipsum也称乱数假文或者哑元文本， 是印刷及排版领域所常用的虚拟文字。由于曾经一台匿名的打印机刻意打乱了一盒印刷字体从而造出一本字体样品书，Lorem Ipsum从西元15世纪起就被作为此领域的标准文本使用。它不仅延续了五个世纪，还通过了电子排版的挑战，其雏形却依然保存至今。&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt; &lt;div class="blocks-content blockapps blocks-id-random" data-edit-height="345" data-mode="code" data-random-num="1" style="background-color:rgba(214,152,105,1);margin-top:0px;margin-right:20px;margin-bottom:0px;margin-left:20px;" data-style="background-color:rgba(214,152,105,1);margin-top:0px;margin-right:20px;margin-bottom:0px;margin-left:20px;"&gt;&lt;div class="grid-container"&gt;&lt;div class="embed-container" style="padding-bottom:23%"&gt;&lt;iframe src="blockapps/countdown?end_date=2017-05-20+23%3A00%3A00&amp;pattern=square&amp;lang_id=2&amp;color=rgba(214%2C152%2C105%2C1)&amp;random=1492423972903" manage-url="blockapps/countdown_manage" data-random-value="1" data-random-key="id" allowfullscreen="" id="1492423923005_mCBfQ" frameborder="0"&gt;&lt;/iframe&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="blocks-content" style="background-color: rgb(255, 255, 255); margin: 0px 20px; padding: 0px;" data-style="background-color:#ffffff;margin-top:0px;margin-right:20px;margin-bottom:0px;margin-left:20px;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;"&gt;&lt;div class="grid-container"&gt;&lt;div class="grid-100 grid-parent grid-equal-parent"&gt;&lt;div class="grid-50 mobile-grid-50 grid-parent grid-equal"&gt;&lt;div style="padding:10px 15px"&gt;&lt;div class="blocks-text"&gt;&lt;h1 style="color: rgb(0, 0, 0); text-align: center;" data-forecolor="#000000"&gt;费用说明&lt;/h1&gt;&lt;p style="text-align: center;"&gt;&lt;span style="color: rgb(0, 0, 0);" data-forecolor="555555"&gt;&lt;br&gt;&lt;/span&gt;&lt;/p&gt;&lt;p style="text-align: center;"&gt;男士：每位￥200&lt;/p&gt;&lt;p style="text-align: center;"&gt;女士：每位￥100&lt;/p&gt;&lt;p style="text-align: center;"&gt;女士可免费获赠任意鸡尾酒一杯&lt;br&gt;&lt;/p&gt;&lt;p style="text-align: center;"&gt;届时全场啤酒任饮&lt;br&gt;&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="grid-50 mobile-grid-50 grid-parent grid-equal-object"&gt;&lt;div class="image-container" style="height: 384px;"&gt;&lt;img src="asset/template/t929v/2017041758f4910886bec.jpg" data-container-ratio="5/4" data-image-width-ratio="0.89" data-image-height-ratio="1.00" data-image-width="951" data-image-height="680" data-image-x="18.133333333333336" data-image-y="0" data-image-rotate="0" data-image-scalex="1" data-image-scaley="1" style="left: -2.14243%; top: 0%; width: 539px; max-width: 539px; transform: rotate(0deg);" alt="" title=""&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt; &lt;div class="blocks-content" style="margin-top:0px;margin-right:20px;margin-bottom:0px;margin-left:20px;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;" data-style="margin-top:0px;margin-right:20px;margin-bottom:0px;margin-left:20px;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;"&gt;&lt;div class="grid-container"&gt;&lt;div class="grid-100 grid-parent"&gt;&lt;div class="grid-33 mobile-grid-33 grid-parent"&gt;&lt;div class="image-container" style="height: 256px;"&gt;&lt;img src="asset/template/t929v/2017041758f4935a11821.png" data-container-ratio="5/4" data-image-width-ratio="0.84" data-image-height-ratio="1.00" data-image-width="633" data-image-height="425" data-image-x="51" data-image-y="0" data-image-rotate="0" data-image-scalex="1" data-image-scaley="1" style="left: -9.59151%; top: 0%; width: 380px; max-width: 380px; transform: rotate(0deg);" alt="" title=""&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="grid-33 mobile-grid-33 grid-parent"&gt;&lt;div class="image-container" style="height: 256px;"&gt;&lt;img src="asset/template/t929v/2017041758f49363283c9.png" data-container-ratio="5/4" data-image-width-ratio="0.84" data-image-height-ratio="1.00" data-image-width="633" data-image-height="425" data-image-x="51" data-image-y="0" data-image-rotate="0" data-image-scalex="1" data-image-scaley="1" style="left: -9.59151%; top: 0%; width: 380px; max-width: 380px; transform: rotate(0deg);" alt="" title=""&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="grid-33 mobile-grid-33 grid-parent"&gt;&lt;div class="image-container" style="height: 256px;"&gt;&lt;img src="asset/template/t929v/2017041758f49371129ea.jpg" data-container-ratio="5/4" data-image-width-ratio="0.83" data-image-height-ratio="1.00" data-image-width="508" data-image-height="339" data-image-x="33.9" data-image-y="0" data-image-rotate="0" data-image-scalex="1" data-image-scaley="1" style="left: -8.04003%; top: 0%; width: 385px; max-width: 385px; transform: rotate(0deg);" alt="" title=""&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="blocks-content" style="background-color: rgb(255, 255, 255); margin: 0px 20px 80px; padding: 40px;" data-style="background-color:#ffffff;margin-top:00px;margin-right:20px;margin-bottom:80px;margin-left:20px;padding-top:40px;padding-right:40px;padding-bottom:40px;padding-left:40px;"&gt;&lt;div class="grid-container"&gt;&lt;div class="blocks-text"&gt;&lt;h1 style="text-align: center;"&gt;欢迎前来参加我们的派对&lt;br&gt;&lt;/h1&gt;&lt;p style="text-align: center;"&gt;&lt;br&gt;&lt;/p&gt;&lt;p style="text-align: center;"&gt;预约电话：+1 234 567 890&lt;/p&gt;&lt;p style="text-align: center;"&gt;地址：company.address&lt;/p&gt;&lt;p style="text-align: center;"&gt;营业时间：16:00~07:00&lt;br&gt;&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;</textarea>
+</form>
+
+<!--一些封装好的组件，例如日期控件-->
+<script src="js/jquery.ui.widget.js"></script>
+<!--以下为文件上传功能组件-->
+<script src="js/fileupload/jquery.iframe-transport.js"></script>
+<script src="js/fileupload/jquery.fileupload.js"></script>
+<script src="js/fileupload/jquery.fileupload-process.js"></script>
+<script src="js/fileupload/jquery.fileupload-validate.js"></script>
+<script type="text/javascript" charset="utf-8">
+    function fileapi_upload_image(object_data) {
+        var defaults = {
+            acceptFileTypes: /(\.|\/)(gif|jpe?g|png)$/i,
+            maxFileSize: 5 * 1048576, //byte // byte 1024 * 1024 = 1Mb
+            onFileComplete: null,
+            onComplete: function (e, data) {
+                if (data && data.result) {
+                    var result = data.result; // server response
+                    console.log(result);
+                    if (!result.status) {
+                        layer.msg(result.message, {icon: 2, time: 5000});
+                    } else {
+                        $("#old_" + result.element_id).val(result.img_path);
+                        $("#img_" + result.element_id).attr('src', result.thumb_img);
+                        if ($('#thumb_' + result.element_id).length)
+                            $('#thumb_' + result.element_id).attr('href', result.http_img);
+                        if ($.inArray(result.element_id, ['background-image', 'caf_html_-background-image', 'caf_wrapper_-background-image']) !== -1) {
+                            $("#" + result.element_id).val(result.img_path);
+                            Styletool.update_styles();
+                        }
+                        //如果是裁剪圖片做替換
+                        if (result.element_id == 'image_cropper') {
+                            if ($('#image_cropper').data('cropper')) {
+                                $('#image_cropper').one('built.cropper', function () {
+                                    // Revoke when load complete
+                                    URL.revokeObjectURL(result.thumb_img);
+                                }).cropper('reset').cropper('replace', result.thumb_img);
+                            } else {
+                                $("#image_cropper").attr('src', result.thumb_img);
+                            }
+                        }
+                    }
+                }
+            }
+        };
+        object_data = $.extend({}, defaults, object_data);
+        // console.log(object_data.id);
+        // console.log(object_data);
+        jQuery(object_data.id).fileupload({
+            url: object_data.url,
+            formData: object_data.data,
+            dataType: 'json',
+            autoUpload: true,
+            acceptFileTypes: /(\.|\/)(gif|jpe?g|png)$/i,
+            maxFileSize: object_data.maxSize * 1048576, //byte // byte 1024 * 1024 = 1Mb
+            maxNumberOfFiles: 50,
+            progressServerRate: 0.3,
+            progressServerDecayExp: 2,
+            messages: {
+                maxFileSize: EP_lang['fileupload-maxFileSize'],
+                acceptFileTypes: EP_lang['fileupload-acceptFileTypes']
+            },
+            done: object_data.onComplete,
+            processfail: function (e, data) { //文件大小和格式驗證
+                var currentFile = data.files[data.index];
+                if (data.files.error && currentFile.error) {
+                    layer.msg(currentFile.error, {icon: 3, time: '3500'});
+                }
+            },
+            progressall: function (e, data) { //總進度條
+                var progress = parseInt(data.loaded / data.total * 100, 10);
+                jQuery(object_data.id).addClass('progress-active');
+                if ($(object_data.id + ' .js-progress').length) {
+                    $(object_data.id + ' .js-browse').hide();
+                    $(object_data.id + ' .js-upload').show();
+                    $(object_data.id + ' .js-progress').css('width', progress + '%');
+                    $(object_data.id + ' .js-size').text(progress + '%');
+                    if (progress == 100 && object_data.id == '#FileAPI_image_cropper') {
+                        jQuery(object_data.id + ' .js-upload').hide();
+                        jQuery(object_data.id).removeClass('progress-active').addClass('image-zip-active');
+                        jQuery('#build_image_cropper').fadeIn();
+                    }
+                }
+            },
+            always: function () {
+                if (object_data.id == '#FileAPI_image_cropper') {
+                    jQuery('#build_image_cropper').hide();
+                    jQuery(object_data.id).removeClass('image-zip-active');
+                }
+                jQuery(object_data.id).removeClass('progress-active');
+                $(object_data.id + ' .js-progress').css('width', '0px');
+                $(object_data.id + ' .js-size').text('0%');
+                $(object_data.id + ' .js-browse').show();
+                $(object_data.id + ' .js-upload').hide();
+            }
+        });
+    }
+</script>
+<!--jQuery UI 一组用户界面交互、特效、小部件及主题-->
+<link href="https://cdn.bootcss.com/jqueryui/1.11.4/jquery-ui.min.css" rel="stylesheet">
+<script src="https://cdn.bootcss.com/jqueryui/1.11.4/jquery-ui.min.js"></script>
+<!--Semantic UI 前端框架 的一部分-->
+<script src="js/SemanticUI/tab.min.js"></script>
+
+<!--color picker 颜色选取部件-->
+<script src="js/colorpicker/evol-colorpicker.min.js"></script>
+<link rel="stylesheet" href="js/colorpicker/evol-colorpicker.min.css"/>
 <!--纯JS实现复制文本到剪切板-->
 <script src="https://cdn.bootcss.com/clipboard.js/1.6.1/clipboard.min.js"></script>
-<div></div>
+<!--Cropper 使用简单且功能强大的图片剪裁jQuery插件-->
+<script src="js/cropper/cropper.min.js"></script>
+<link rel="stylesheet" href="js/cropper/cropper.min.css"/>
+<!--js.cookie 操作cookie的插件-->
+<script src="js/js.cookie.min.js"></script>
+
+<script type="text/javascript" charset="utf-8">
+    jQuery(window).resize(function () {
+        image_cropper_fun();
+    });
+    //重置裁剪后圖像.
+    function image_cropper_fun() {
+        jQuery('.image-container').each(function () {
+            var container_ratio = jQuery(this).find('img').attr('data-container-ratio');
+            var imgresize_height = jQuery(this).width() / eval(container_ratio);
+            jQuery(this).height(imgresize_height);
+        });
+
+        jQuery('.image-container img').each(function () {
+            jQuery(this).attr('contentEditable', 'false');
+            var image_width_ratio = jQuery(this).attr('data-image-width-ratio');
+            var parent_width = jQuery(this).parents('.image-container').width();
+            var imgresize_width = parseInt(parent_width / image_width_ratio);
+            jQuery(this).width(imgresize_width);
+            jQuery(this).css("maxWidth", imgresize_width);
+        });
+        //20170107 add
+        jQuery('div.grid-equal-width').each(function () {
+            jQuery(this).height(jQuery(this).width());
+        });
+        jQuery('div.grid-equal-height').each(function () {
+            jQuery(this).width(jQuery(this).height());
+        });
+    }
+
+    var folder = document.getElementById('setting_system_url').value;
+
+    var fileapi_setting = function () {
+        return {
+            id: '',
+            url: "https://easypage.com/e/upload",
+            data: {
+                'folder': folder,
+                'image_mode': 'original',
+                'thumb_ratio': 'TRUE',
+                'thumb_size': '',
+                'element_id': '',
+                'token': "2025e4282f4ed47da675300b96cab0e2470918a1"
+            },
+            maxSize: 5
+        };
+    }
+
+    jQuery(document).ready(function () {
+        image_cropper_fun();
+        //builder
+        jQuery("#template_wrapper").contentbuilder({
+            hostPathName: "https://easypage.com/",
+            snippetFile: "https://easypage.com/e/editor/ajax_get_block",
+            snippetCategories: [[0, "基本"], ["selected", "最近使用"], [1, "文本"], [13, "标题"], [8, "图形标题"], [6, "对话框"], [4, "图文"], [12, "单张图片"], [3, "图片組合"], [7, "列表"], [2, "按钮"], [18, "菜单"], [14, "地图"], [15, "视频"], [16, "社群"], [17, "幻灯片"], [5, "其它"]],
+            scrollHelper: false,
+            snippetOpen: true,
+            toolbar: 'top'
+        });
+        //20170327 handle style px number
+        jQuery('input.slider-bound').keypress(function (event) {
+            var eventObj = event || e;
+            var keyCode = eventObj.keyCode || eventObj.which;
+            if ((keyCode >= 48 && keyCode <= 57) || (event.keyCode == 8))
+                return true;
+            else
+                return false;
+        }).focus(function () {
+            $(this).css('imeMode', 'disabled');
+        }).bind("paste", function () {
+            var clipboard = window.clipboardData.getData('text');
+            if (/^\d+$/.test(clipboard))
+                return true;
+            else
+                return false;
+        });
+        //jquery file upload
+        //循環得到
+        jQuery('div.js-fileapi-wrapper').each(function () {
+            var FileAPI_btn = $(this).attr('id');
+            var thumb_size = $(this).attr('data-thumb_size'); //是否要縮圖
+            var FileAPI_input = FileAPI_btn.replace('FileAPI_', '');
+            var temp_object = fileapi_setting();
+            temp_object.id = '#' + FileAPI_btn;
+            temp_object.data.element_id = FileAPI_input;
+            temp_object.data.thumb_size = thumb_size;//縮圖尺寸
+            temp_object.data.thumb_ratio = jQuery(this).attr('data-thumb_ratio');//縮圖尺寸
+            temp_object.data.image_mode = jQuery(this).attr('data-image-mode');//是否壓縮.還是縮圖
+
+            // console.log(temp_object);
+            fileapi_upload_image(temp_object);
+        });
+
+        //添加鏈接
+        jQuery('i.ca_target_link').click(function () {
+            var input_target = $(this).attr('data-input-target');
+            $('.ui.modal.ca_target_link_modal').modal({
+                allowMultiple: true,
+                onHidden: function () {
+                    jQuery('#target_link').val('');
+                    jQuery('#btn_target_link').removeClass('loading');
+                },
+                onShow: function () {
+                    jQuery('#target_link').attr('data-input-target', input_target);
+                    if (jQuery(input_target).val())
+                        jQuery('#target_link').val(jQuery(input_target).val());
+                    else
+                        jQuery('#target_link').dropdown('clear');
+                }
+            }).modal('show');
+        });
+        //鏈接確定.
+        jQuery('#btn_target_link').click(function () {
+            jQuery(this).addClass('loading');
+            var input_target = $('#target_link').attr('data-input-target');
+            var input_value = $('#target_link').val();
+            if (input_target != '' && input_value != '') {
+                jQuery(input_target).val(input_value);
+                $('.ui.modal.ca_target_link_modal').modal('hide');
+            }
+        });
+
+        jQuery('.ui.modal.ca_settings_modal').modal('attach events', '.ca_settings');
+
+        //quit 20161201
+        jQuery('.ui.modal.ca_quit_modal').modal('attach events', '.ca_quit');
+        jQuery('#btn_save_quit').click(function () {
+            jQuery(this).addClass('loading');
+            jQuery('.ui.modal.ca_quit_modal').modal('hide');
+            $('#editor-loader').removeClass('disabled').addClass('active');
+            $('#is_publish').val(1);
+            var content_html = jQuery('#dynamic-styles').prop('outerHTML');
+            content_html += $("#template_wrapper").data('contentbuilder').html();
+            $('#page_content').text(content_html);
+            //ajax save
+            $.ajax({
+                url: $('#editor-form').attr('action'),
+                type: $('#editor-form').attr('method'),
+                cache: false,
+                dataType: 'json',
+                data: $('#editor-form').serialize()
+            })
+                    .done(function (data) {
+                        if (data.status == 'success') {
+                            window.location.href = jQuery('#btn_save_quit').next('a').attr('href');
+                        } else {
+                            layer.msg(data.message, {icon: 2, time: 5000});
+                        }
+                    })
+                    .fail(function () {
+                        layer.msg('editor page save and quit ajax error', {icon: 4});
+                    });
+        });
+
+        jQuery('.pagetab .item').tab({
+            onLoad: function (tabPath) {
+                if (tabPath == 'tab_url') {//判斷自定義url 是否檢查support.
+                    var unique_url_check = $('#unique_url_check').val();
+                    if (unique_url_check != 1)
+                        jQuery('#btn-page-setting').addClass('disabled');
+                } else {
+                    jQuery('#btn-page-setting').removeClass('disabled');
+                }
+            }
+        });
+
+        //save or publish page editor
+        jQuery('button.btn-editor').click(function () {
+            var $btn_object = $(this);
+            $('#editor-loader').removeClass('disabled').addClass('active');
+            $btn_object.attr('disabled', true).addClass('loading');
+            var is_publish = $(this).data('page-status');
+            $('#is_publish').val(is_publish);
+            var content_html = jQuery('#dynamic-styles').prop('outerHTML');
+            content_html += $("#template_wrapper").data('contentbuilder').html();
+            $('#page_content').text(content_html);
+
+            //ajax save
+            $.ajax({
+                url: $('#editor-form').attr('action'),
+                type: $('#editor-form').attr('method'),
+                cache: false,
+                dataType: 'json',
+                data: $('#editor-form').serialize(),
+                beforeSend: function () {
+                    $('#editor-loader').removeClass('disabled').addClass('active');
+                    $btn_object.attr('disabled', true).addClass('loading');
+                }
+            })
+                    .done(function (data) {
+                        if (data.status == 'success') {
+                            if (is_publish == 1) {//save
+                                $('.ui.modal.ca_save_modal').modal('show');
+                                if ($('#tips_content_sync').length == 0) {
+                                    var publish_txt = $('button[data-page-status="2"]').text();
+                                    var temp_tips_sync = '<sup id="tips_content_sync" data-tooltip="' + EP_lang['tips_content_sync'] + '" data-position="top center"><i class="icon-attention-alt"></i></sup>';
+                                    $('button[data-page-status="2"]').html(publish_txt + temp_tips_sync);
+                                }
+                            } else {
+                                jQuery('.ui.modal.ca_publish_modal').modal({
+                                    onHidden: function () {
+                                        $('li.ca_share_more').removeClass('hidden').show();
+                                        $('ul.ca_share_icon li').slice(5).addClass('hidden');
+                                        $('#copy-button').removeClass('green').addClass('primary');
+                                        $('#copy-button').html('复制');
+                                    }
+                                }).modal('show');
+                                var clipboard = new Clipboard(document.getElementById("copy-button"));
+                                clipboard.on('success', function (e) {
+                                    $('#copy-button').removeClass('primary').addClass('green');
+                                    $('#copy-button').html('<i class="icon-ok"></i>');
+                                    layer.msg(EP_lang['success'], {icon: 1});
+                                    clipboard.destroy();
+                                });
+                                if (!jQuery('#page_status').prop('checked'))
+                                    jQuery('#page_status').prop('checked', true);
+                                jQuery('#qrcode').html('');
+                                //wechat qrcode
+                                jQuery('#qrcode').qrcode({
+                                    text: jQuery('#copy_pageurl').val(),
+                                    height: 250,
+                                    width: 250
+                                    //src: 'asset/front/img/ico/apple-touch-icon.png'//这里配置Logo的地址即可。
+                                });
+                                $('#tips_content_sync').remove();
+
+                                //share more
+                                $('li.ca_share_more').unbind('click');
+                                $('li.ca_share_more').click(function () {
+                                    $(this).addClass('hidden').hide();
+                                    $('ul.ca_share_icon li').slice(5).removeClass('hidden');
+                                });
+
+                                //share record cookie
+                                $('ul.ca_share_icon li a,ul.ca_share_icon li div[class!="ca_share_more_button"]').unbind('click');
+                                $('ul.ca_share_icon li a,ul.ca_share_icon li div[class!="ca_share_more_button"]').click(function () {
+                                    var use_social_share = Cookies.get('use_social_share');
+                                    var use_social_share_array = new Array();
+                                    if (use_social_share != undefined) {
+                                        use_social_share_array = use_social_share.split(',');
+                                    }
+                                    var current_share = $(this).parent('li').attr('class');
+                                    if (!$.isEmptyObject(use_social_share_array) && $.inArray(current_share, use_social_share_array)) {
+                                        use_social_share_array.remove(current_share);
+                                    }
+                                    use_social_share_array.push(current_share);
+                                    Cookies.set('use_social_share', use_social_share_array.join(), {expires: 30});
+                                });
+                                //array remove by value
+                                Array.prototype.remove = function () {
+                                    var what, a = arguments, L = a.length, ax;
+                                    while (L && this.length) {
+                                        what = a[--L];
+                                        while ((ax = this.indexOf(what)) !== -1) {
+                                            this.splice(ax, 1);
+                                        }
+                                    }
+                                    return this;
+                                };
+                                //wechat qrcode
+                                $('.ui.modal.ca_share_wechat_modal').modal({allowMultiple: true}).modal('attach events', '.ca_share_wechat_modal');
+                                $('.ui.modal.ca_share_qrcode_modal').modal({allowMultiple: true}).modal('attach events', '.ca_share_qrcode_modal');
+                            }
+                        } else {
+                            layer.msg(data.message, {icon: 2, time: 5000});
+                        }
+                    })
+                    .fail(function () {
+                        layer.msg('editor page save or publish ajax error', {icon: 4});
+                    })
+                    .always(function () {
+                        $('#editor-loader').removeClass('active').addClass('disabled');
+                        $btn_object.removeAttr('disabled').removeClass('loading');
+                    });
+            return false;
+        });
+
+        //save setting
+        jQuery('#form-page-setting').keypress(function (e) {
+            if (e.which == 13) {
+                // var unique_url_check=$('#unique_url_check').val();
+                // if($(this).attr('id')=='unique_url' && unique_url_check!=1)
+                //   jQuery('#btn-unique_url').trigger('click');
+                // else
+                //   jQuery('#btn-page-setting').trigger('click');
+                return false;
+            }
+        });
+        //button click save setting
+        jQuery('#btn-page-setting').click(function () {
+            $('#form-page-setting').form({
+                fields: {
+                    page_title: {
+                        identifier: 'page_title',
+                        rules: [
+                            {
+                                type: 'empty',
+                                prompt: EP_lang['page_title_empty_error']
+                            },
+                            {
+                                type: 'maxLength[175]',
+                                prompt: EP_lang['page_title_maxLength_error']
+                            }
+                        ]
+                    },
+                    page_description: {
+                        identifier: 'page_description',
+                        rules: [
+                            {
+                                type: 'maxLength[500]',
+                                prompt: EP_lang['page_description_maxLength_error']
+                            }
+                        ]
+                    },
+                    unique_url: {
+                        identifier: 'unique_url',
+                        rules: [
+                            {
+                                type: 'maxLength[20]',
+                                prompt: EP_lang['page_uniqueURL_maxLength_error']
+                            }
+                        ]
+                    },
+                    page_password: {
+                        identifier: 'page_password',
+                        rules: [
+                            {
+                                type: 'maxLength[20]',
+                                prompt: EP_lang['page_password_maxLength_error']
+                            }
+                        ]
+                    }
+                },
+                inline: true,
+                onSuccess: function (e) {
+                    $('#btn-page-setting').addClass('loading').attr('disabled', true);
+                    $.ajax({
+                        url: $('#form-page-setting').attr('action'),
+                        type: $('#form-page-setting').attr('method'),
+                        dataType: 'json',
+                        data: $('#form-page-setting').serialize()
+                    })
+                            .done(function (data) {
+                                if (data.status == 'success') {
+                                    layer.msg(data.message, {icon: 1});
+                                    //如果自定義了網址
+                                    if (typeof data.custom_url === 'string' && data.custom_url) {
+                                        $('#copy_pageurl').val(data.custom_url);
+                                        $('#view_pageurl').attr('href', data.custom_url);
+                                    }
+                                    //如果自定義了封面圖
+                                    if (typeof data.custom_cover === 'string' && data.custom_cover) {
+                                        $('#custom_page_cover').val(data.custom_cover);
+                                    }
+
+                                } else {
+                                    layer.msg(data.message, {icon: 2, time: 5000});
+                                }
+                                $('.ui.modal.ca_settings_modal').modal('hide');
+                            })
+                            .fail(function () {
+                                layer.msg('builder page setting ajax error', {icon: 4});
+                            })
+                            .always(function () {
+                                $('#btn-page-setting').removeAttr('disabled').removeClass('loading');
+                            });
+                    return false;
+                }
+            });
+        });
+
+        //驗證自定義url
+        jQuery('#btn-unique_url').click(function () {
+            var unique_url = $('#unique_url').val();
+            $('#btn-unique_url').parents('div.field').removeClass('error');
+            var strRegex = /^[a-z0-9_-]+$/i;
+            if (unique_url.length > 0 && unique_url.length <= 20 && strRegex.test(unique_url)) {
+                var page_id = $('#page_id').val();
+                $.ajax({
+                    url: "https://easypage.com/e/editor/check_custom_url",
+                    type: 'POST',
+                    dataType: 'json',
+                    data: {'unique_url': unique_url, 'page_id': page_id},
+                    beforeSend: function () {
+                        jQuery('#btn-unique_url').addClass('loading');
+                    }
+                })
+                        .done(function (data) {
+                            if (data.status == 'success') {
+                                $('#unique_url_check').val(data.unique_url_check);
+                                $('#btn-unique_url').addClass('disabled').addClass('green');
+                                $('#btn-unique_url').html('<i class="icon-ok"></i>');
+                                jQuery('#btn-page-setting').removeClass('disabled');
+                                layer.msg(data.message, {icon: 1});
+                            } else {
+                                layer.msg(data.message, {icon: 3, time: 5000});
+                            }
+                        })
+                        .fail(function () {
+                            layer.msg('editor page check url ajax error', {icon: 4});
+                        })
+                        .always(function () {
+                            jQuery('#btn-unique_url').removeClass('loading');
+                        });
+            } else {
+                layer.msg(EP_lang['page_uniqueURL_format_error'], {icon: 5, time: 3000});
+                $('#btn-unique_url').parents('div.field').addClass('error');
+            }
+            return false;
+        });
+
+        //如果$('#unique_url').val()改變 執行方法
+        jQuery('#unique_url').bind("input", function () {
+            $('#btn-unique_url').parents('div.field').removeClass('error');
+            $('#unique_url_check').val('');
+            jQuery('#btn-page-setting').addClass('disabled');
+            $('#btn-unique_url').removeClass('disabled').removeClass('green');
+            $('#btn-unique_url').text($(this).data('lang'));
+        });
+    });
+    /* fixed IE/Firefox img slect handler problem for Abin 2016/09/21*/
+    function controlselectHandler(evt) {
+        evt.preventDefault();
+    }
+    document.body.addEventListener('mscontrolselect', controlselectHandler);
+    /* fixed iphone/ipod/ipad iframe scrollbar problem for Ray 2016/09/22*/
+    jQuery(document).ready(function ($) {
+        var deviceAgent = navigator.userAgent.toLowerCase();
+        var agentID = deviceAgent.match(/(iphone|ipod|ipad)/);
+        if (agentID) {
+            $('.fonts_iframe').css("-webkit-overflow-scrolling", "touch").css("overflow-y", "scroll");
+            $('input.colorpicker').each(function () {
+                $(this).off('mouseover');
+                $(this).attr('readonly', true);
+            });
+        }
+        if (deviceAgent.match(/MicroMessenger/i) == "micromessenger") {
+            $('li.ca_share_wechat').css('display', 'inline-block');
+        }
+    });
+</script>
+
+<!--Overall-->
+<script src="js/SemanticUI/transition.min.js"></script>
+<script src="js/SemanticUI/dropdown.min.js"></script>
+<script src="js/SemanticUI/popup.min.js"></script>
+<script src="js/SemanticUI/dimmer.min.js"></script>
+<script src="js/SemanticUI/checkbox.min.js"></script>
+<script src="js/SemanticUI/modal.min.js"></script>
+<script src="js/SemanticUI/form.min.js"></script>
+<script src="js/SemanticUI/api.min.js"></script>
+<!--根据用户输入值进行搜索和过滤，让用户快速找到并从预设值列表中选择 输入框自动完成提示插件-->
+<script src="https://cdn.bootcss.com/jquery.devbridge-autocomplete/1.2.26/jquery.autocomplete.min.js"></script>
+<!--layer v2.1 web弹层组件-->
+<script src="js/layer/layer.js"></script>
+
+<script src="js/common.js"></script>
 </body>
 </html>
