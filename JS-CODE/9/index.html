@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>文本文字自动滚动</title>
+    <link rel="stylesheet" type="text/css" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" media="all">
+    <link rel="stylesheet" type="text/css" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" media="all">
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+        .demo {
+            width: 500px;
+            margin: 0 auto;
+            padding-top: 100px;
+            text-align:center;
+        }
+        ul,li{
+            list-style: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="demo">
+        <h3>春江花月夜 - 张若虚</h3>
+        <div id="roll" data-width="100" data-rheight="100" class="roll">
+            <ul>
+                <li>春江潮水连海平,海上明月共潮生</li>
+                <li>滟滟随波千万里,何处春江无月明</li>
+                <li>江流宛转绕芳甸,月照花林皆似霰</li>
+                <li>空里流霜不觉飞,汀上白沙看不见</li>
+                <li>江天一色无纤尘,皎皎空中孤月轮</li>
+                <li>江畔何人初见月?江月何年初照人</li>
+                <li>人生代代无穷已,江月年年只相似</li>
+                <li>不知江月待何人,但见长江送流水</li>
+                <li>白云一片去悠悠,青枫浦上不胜愁</li>
+                <li>谁家今夜扁舟子?何处相思明月楼</li>
+                <li>可怜楼上月徘徊,应照离人妆镜台</li>
+                <li>玉户帘中卷不去,捣衣砧上拂还来</li>
+                <li>此时相望不相闻,愿逐月华流照君</li>
+                <li>鸿雁长飞光不度,鱼龙潜跃水成文</li>
+                <li>昨夜闲潭梦落花,可怜春半不还家</li>
+                <li>江水流春去欲尽,江潭落月复西斜</li>
+                <li>斜月沉沉藏海雾,碣石潇湘无限路</li>
+                <li>不知乘月几人归,落月摇情满江树</li>
+            </ul>
+        </div>
+    </div>
+    <script>
+        (function(){
+            var ul = document.getElementsByTagName('ul')[0];
+            var li = ul.getElementsByTagName('li');
+            var len = li.length;
+
+            function auto(){
+                act(ul,'marginTop',-20,function(){
+                    ul.appendChild(ul.children[0]);
+                    ul.style.marginTop = 0;
+                    setTimeout(function(){
+                                auto();
+                            },800);
+                });
+            }
+            auto();
+             function css(obj,attr){
+                 if(obj.currentStyle){
+                     return obj.currentStyle[attr];
+                 }else{
+                     return getComputedStyle(obj, null)[attr];
+                 }
+             }
+
+            function act(obj,attr,target,fn){
+                clearInterval(obj.timer);
+                obj.timer = setInterval(function(){
+                    var cur = parseInt(css(obj, attr));
+                    var speed = (target - cur) / 8;
+                    var stop = true;
+                    speed = speed > 0 ? Math.ceil(speed) : Math.floor(speed);
+                    if(target != cur){
+                        stop = false;
+                    }
+                    obj.style[attr] = speed + cur + 'px';
+                    if(stop){
+                        clearInterval(obj.timer);
+                        obj.timer = null;
+                        fn && fn.call(obj);
+                    }
+                },20);
+            }
+        })();
+    </script>
+</body>
+</html>
