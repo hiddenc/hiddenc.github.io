@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>闭包学习</title>
+    <script src="https://cdn.bootcss.com/jquery/3.2.0/jquery.min.js"></script>
+</head>
+<body>
+<div id="log"></div>
+<script>
+    //2.实现封装，管理私有变量和私有方法，将变量（状态）的变化封装在安全的环境中。
+    var person = function () {
+        //变量作用域为函数内部，外部无法访问，不会与外部变量发生重名冲突
+        var name = "default";
+        return {
+            //管理私有变量
+            getName: function () {
+                return name;
+            },
+            setName: function (newName) {
+                name = newName;
+            }
+        }
+    }();
+
+    //3.匿名自执行函数，在匿名自执行函数传入一个闭包函数，匿名自执行函数执行完立即销毁，可以减小内存消耗。
+    (function () {
+        var foo = function () {
+            console.log("执行完这个闭包后，立即销毁");
+        };
+        foo();
+    })();
+
+    //4.让变量始终保持在内存中，内存消耗会很大，这是一个缺点。
+    //实现封装，防止变量跑到外层作用域中，发生命名冲突；匿名自执行函数，匿名自执行函数可以减小内存消耗
+
+    var foo = ( function () {
+        var secret = "secret";
+        //闭包 内的函数可以访问secret变量，而secret对于外部却是隐藏的
+        return {
+            get_secret: function () {
+                //通过定义的接口来访问 secret
+                return secret;
+            },
+            new_secret: function (new_secret) {
+                secret = new_secret;
+            }
+        };
+    }());
+    foo.get_secret();//得到 secret
+    foo.secret;// Type error 访问不能
+    foo.new_secret('a new secret'); //通过接口函数，我们访问并修改了secret变量
+    foo.get_secret();//得到'a new secret';
+
+    var name = "The Window";
+    var object = {
+        name : "My Object",
+        getNameFunc : function(){
+            return function(){
+                return this.name;
+            };
+        }
+    };
+    console.log(object.getNameFunc()()); //The Window
+
+    var name2 = "The Window";
+    var object2 = {
+        name2 : "My Object",
+        getNameFunc : function(){
+            var that = this;
+            return function(){
+                return that.name2;
+            };
+        }
+    };
+    console.log(object2.getNameFunc()()); //My Object;
+
+</script>
+</body>
+</html>
